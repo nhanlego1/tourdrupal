@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Implements the hooks for Paypal Adaptive Accounts API.
+ */
+/**
+ * Implements hook_permission()
+ */
+function paypal_adaptive_accounts_api_permission() {
+  return array(
+    'administer paypal adaptive accounts' => array(
+      'title' => t('Administer PayPal Adaptive Accounts'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function paypal_adaptive_accounts_api_menu() {
+  $items = array();
+  $items['admin/config/services/paypal_adaptive_accounts_api'] = array(
+    'title' => 'PayPal Adaptive Accounts Settings',
+    'description' => 'Settings credentials and options to integrate the Drupal with PayPal Adaptive Accounts.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('paypal_adaptive_accounts_api_settings_form'),
+    'access arguments' => array('administer paypal adaptive accounts'),
+    'file' => 'paypal_adaptive_accounts_api.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Check Paypal Account Status.
+ *
+ * @param string $email The email address of the PayPal account holder.
+ * @param string $first_name The first name of the PayPal account holder. Required if $criteria is NAME.
+ * @param string $last_name The last name of the PayPal account holder. Required if $criteria is NAME.
+ * @param string $criteria The criteria that must be matched in addition to $email.
+ * @return
+ * 
+ */
+function paypal_adaptive_accounts_api_check_account($email, $first_name = '', $last_name = '', $criteria = 'NAME') {  
+  
+  $pp_service = new PayPalAdaptiveAccounts();
+  
+  $verified_status_fields = array(
+    'emailAddress' => $email,
+    'firstName' => $first_name,
+    'lastName' => $last_name,
+    'matchCriteria' => $criteria
+  );
+  
+  return $pp_service->getAccountStatus($verified_status_fields);
+}

@@ -1,0 +1,12 @@
+name = Paypal Adaptive Accounts API
+description = Provides some callbacks for the Paypal Adaptive Accounts API.
+package = Paypal
+core = 7.x
+files[] = includes/PayPalAdaptiveAccounts.inc
+
+; Information added by Drupal.org packaging script on 2013-12-18
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "paypal_adaptive_accounts_api"
+datestamp = "1387388005"
+

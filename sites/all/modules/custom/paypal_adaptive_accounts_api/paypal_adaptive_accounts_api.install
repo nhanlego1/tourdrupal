@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Installs hooks for Paypal Adaptive Accounts API.
+ */ 
+ 
+ /**
+ * Implements hook_requirements().
+ */
+function paypal_adaptive_accounts_api_requirements($phase) {
+  $requirements = array();
+  $t = get_t();
+ 
+  if (!function_exists('curl_exec')) {
+    $requirements['paypal_adaptive_accounts_api_curl'] = array(
+      'title' => $t('cURL'),
+      'value' => $t('Not available'),
+      'severity' => REQUIREMENT_ERROR,
+      'description' => $t('Paypal Adaptive Accounts API requires the PHP <a href="!curl_url">cURL</a> library.', array('!curl_url' => 'http://php.net/manual/en/book.curl.php')),
+    );
+  }
+  
+  $core_lib_url = 'https://github.com/paypal/sdk-core-php';
+  $core_lib_path = 'sites/all/libraries/paypal/sdk-core-php-master';  
+  if (!file_exists($core_lib_path)) {
+    $requirements['paypal_adaptive_accounts_api_core_lib'] = array(
+      'title' => $t('PayPal PHP Core SDK'),
+      'value' => $t('Not available'),
+      'severity' => REQUIREMENT_ERROR,
+      'description' => $t('Paypal Adaptive Accounts API requires the <a href="!core_lib_url">PayPal PHP Core SDK</a> library on !core_lib_path.', array('!core_lib_url' => $core_lib_url, '!core_lib_path' => $core_lib_path)),
+    );
+  }
+  
+  $paypal_lib_url = 'https://github.com/paypal/adaptiveaccounts-sdk-php';
+  $paypal_lib_path = 'sites/all/libraries/paypal/adaptiveaccounts-sdk-php-master'; 
+  if (!file_exists($paypal_lib_path)) {
+    $requirements['paypal_adaptive_accounts_api_paypal_lib'] = array(
+      'title' => $t('PayPal PHP Adaptive Accounts SDK'),
+      'value' => $t('Not available'),
+      'severity' => REQUIREMENT_ERROR,
+      'description' => $t('Paypal Adaptive Accounts API requires the <a href="!paypal_lib_url">PayPal PHP Adaptive Accounts SDK</a> library on !paypal_lib_path.', array('!paypal_lib_url' => $paypal_lib_url, '!paypal_lib_path' => $paypal_lib_path)),
+    );
+  }
+  
+  return $requirements;
+}

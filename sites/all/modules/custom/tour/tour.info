@@ -1,0 +1,8 @@
+name = Tour JP Custom
+description = Module custom add multiupload libraries.
+core = 7.x
+version = "7.x-0.1"
+project = "Tour JP"
+package = "Tour JP"
+
+

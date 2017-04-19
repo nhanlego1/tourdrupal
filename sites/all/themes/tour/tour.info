@@ -1,0 +1,29 @@
+name = Tour Japan
+
+base theme = bootstrap
+
+description = A simple one-column, tableless, fluid width administration theme.
+package = Core
+version = VERSION
+core = 7.x
+stylesheets[screen][] = css/style.css
+stylesheets[screen][] = css/default.css
+stylesheets[screen][] = css/circle.css
+stylesheets[screen][] = css/progress-wizard.min.css
+
+
+settings[shortcut_module_link] = 1
+regions[content] = Content
+regions[help] = Help
+regions[featured] = Featured
+regions[slider] = Slider
+regions[page_top_left] = Page top Left
+regions[page_top_right] = Page top Right
+regions[page_bottom] = Page bottom
+regions[sidebar_right] = Right sidebar
+regions[header] = Header
+regions[footer] = Footer
+regions[step] = Step
+
+
+

@@ -1,0 +1,1089 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: nhan
+ * Date: 4/11/17
+ * Time: 9:22 PM
+ */
+ define('APIUSER',variable_get('paypal_adaptive_accounts_api_username','nhanlego1-facilitator_api1.gmail.com'));
+ define('APIPASS',variable_get('paypal_adaptive_accounts_api_password', 'NP2HJ5EKXVECABK5'));
+ define('APISIG',variable_get('paypal_adaptive_accounts_api_signature','AFcWxV21C7fd0v3bYYYRCpSSRl31AjyU8tN6VDHFblBRUxZ3NUdPZJmE'));
+ define('APIAPID',variable_get('paypal_adaptive_accounts_api_appid','APP-80W284485P519543T'));
+ define('APISANBOX',variable_get('paypal_adaptive_accounts_api_server','sandbox'));
+ define('APISANBOXURL','https://svcs.sandbox.paypal.com/AdaptivePayments/');
+ define('APISANBOX_RETURN','https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=');
+ define('APIURL','https://svcs.paypal.com/AdaptivePayments/');
+ define('APIURL_RETURN','https://www.paypal.com/webscr?cmd=_ap-payment&paykey=');
+ define('APIEMAIL',variable_get('paypal_adaptive_accounts_api_email', 'nhanexotest-1@gmail.com'));
+ define('SUCCESS_URL',variable_get('paypal_adaptive_accounts_api_success_url'));
+ define('CANCEL_URL',variable_get('paypal_adaptive_accounts_api_cancel_url', 'nhanexotest-1@gmail.com'));
+ define('PAYPAL_MODE',variable_get('paypal_adaptive_accounts_api_server', 'sandbox'));
+ define('PAYPAL_PERCENT',variable_get('paypal_adaptive_accounts_api_percent', 1));
+ 
+require 'includes/paypal.php';
+ /**
+ * Implement hook_menu
+ */
+/**
+ * Implement hook_menu()
+ */
+function tour_menu()
+{
+    $items = array();
+    
+    $items['questions-and-answers'] = array(
+        'title'=> t('Question and Answer'),
+        'access arguments' => array('access content'),
+        'page callback' => 'tour_question_answer',
+        'type' => MENU_CALLBACK
+    );
+    
+     $items['host/confirm'] = array(
+        'title'=> t('HOST SYSTEM GUIDE'),
+        'access arguments' => array('access content'),
+        'page callback' => 'host_confirm',
+        'type' => MENU_CALLBACK
+    );
+     $items['tour/confirm'] = array(
+        'title'=> t('Tour entry form'),
+        'access arguments' => array('access content'),
+        'page callback' => 'tour_confirm',
+        'type' => MENU_CALLBACK
+    );
+      $items['purchase/%/%node'] = array(
+        'title'=> t('Purchase'),
+        'access arguments' => array('access content'),
+        'page callback' => 'tour_purchase',
+        'page arguments' => array(1,2),
+        'type' => MENU_CALLBACK
+    );
+      $items['purchase/confirm/%node'] = array(
+        'title'=> t('Purchase confirm'),
+        'access arguments' => array('access content'),
+        'page callback' => 'tour_purchase_confirm',
+        'page arguments' => array(2),
+        'type' => MENU_CALLBACK
+    );
+      $items['purchase/paypal/%node'] = array(
+        'title'=> t('Purchase confirm'),
+        'access arguments' => array('access content'),
+        'page callback' => 'tour_purchase_paypal',
+        'page arguments' => array(2),
+        'type' => MENU_CALLBACK
+    );
+     $items['host/finish/step3'] = array(
+        'title'=> t('HOST SYSTEM GUIDE'),
+        'access arguments' => array('access content'),
+        'page callback' => 'host_finish',
+        'type' => MENU_CALLBACK
+    );
+     $items['tour/finish/step3'] = array(
+        'title'=> t('Tour entry form'),
+        'access arguments' => array('access content'),
+        'page callback' => 'tour_finish',
+        'type' => MENU_CALLBACK
+    );
+     $items['host-tour/cancel/%node'] = array(
+        'title'=> t('Delete node'),
+        'access arguments' => array('access content'),
+        'page callback' => 'host_tour_cancel',
+        'page arguments' => array(2),
+        'type' => MENU_CALLBACK
+    );
+    
+    $items['admin/dashboard'] = array(
+        'title' => 'Admin Dashboard ',
+        'description' => 'Control config for Tour.',
+        'page callback' => 'tour_admins_dashboard',
+        'access arguments' => array('administer tour'),
+    );
+    
+  
+    return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function tour_permission()
+{
+    return array(
+        'administer tour' => array(
+            'title' => t('Administer Tour'),
+            'restrict access' => TRUE,
+        ),
+    );
+}
+
+
+/**
+ * Implementation of hook_theme().
+ */
+function tour_theme()
+{
+    $items = array();
+    $items['tour_slider'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-slider',
+    );
+    $items['tour_footer'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-footer',
+    );
+    $items['tour_service'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-service',
+    );
+    $items['tour_progress'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-progress',
+    );
+    $items['tour_testimonial'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-testimonial',
+    );
+    $items['tour_article_home'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-article-home',
+    );
+    $items['tour_step'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-step',
+    );
+    $items['tour_host'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-host',
+    );
+    $items['tour_tour'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-tour',
+    );
+    $items['tour_qa'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-qa',
+    );
+    $items['tour_host_confirm'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-host-confirm',
+    );
+     $items['tour_purchase_confirm'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-purchase-confirm',
+    );
+     $items['admin_dashboard'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-admin-dashboard',
+    );
+    return $items;
+}
+
+/**
+ * Implement hook_block_info
+ */
+function tour_block_info(){
+    $blocks = array();
+    $blocks['tour_slider'] = array('info' => t('Tour slider'));
+    $blocks['tour_footer'] = array('info' => t('Tour footer'));
+    $blocks['tour_service'] = array('info' => t('Tour service'));
+    $blocks['tour_progress'] = array('info' => t('Tour Progress'));
+    $blocks['tour_testimonial'] = array('info' => t('Tour Testimonial'));
+    $blocks['tour_article_home'] = array('info' => t('Tour article home'));
+    $blocks['tour_step'] = array('info' => t('Tour Step'));
+    $blocks['tour_host'] = array('info' => t('Tour Host'));
+    $blocks['tour_tour'] = array('info' => t('Tour Tour'));
+    $blocks['tour_question'] = array('info' => t('Tour Question'));
+    return $blocks;
+}
+
+/**
+ * Implement hook_block_views
+ */
+
+function tour_block_view($delta = ''){
+    switch ($delta) {
+
+        case 'tour_slider':
+            //add js for slider
+            drupal_add_js(drupal_get_path('module','tour').'/js/jquery.nivo.slider.js');
+            drupal_add_js(drupal_get_path('module','tour').'/js/tour.js');
+            drupal_add_css(drupal_get_path('module','tour').'/css/nivo-slider.css');
+            return array(
+                'subject' => t('Tour slider'),
+                'content' => _tour_slider(),
+            );
+
+            break;
+
+        case 'tour_footer':
+            return array(
+                'subject' => t('Tour Footer'),
+                'content' => _tour_footer(),
+            );
+
+            break;
+        case 'tour_service':
+            return array(
+                'subject' => t('Tour Service'),
+                'content' => _tour_service(),
+            );
+
+            break;
+        case 'tour_progress':
+            return array(
+                'subject' => t('Tour Progress'),
+                'content' => _tour_progress(),
+            );
+
+            break;
+        case 'tour_testimonial':
+            return array(
+                'subject' => t('Tour Testimonial'),
+                'content' => _tour_testimonial(),
+            );
+
+            break;
+        case 'tour_article_home':
+            return array(
+                'subject' => t('Tour article home'),
+                'content' => _tour_article_home(),
+            );
+
+            break;
+        case 'tour_step':
+            return array(
+                'subject' => t('Tour Step'),
+                'content' => _tour_step_form(),
+            );
+
+            break;
+         case 'tour_host':
+            return array(
+                'subject' => t('Tour Host'),
+                'content' => tour_get_host_home(),
+            );
+
+            break;
+        case 'tour_tour':
+            return array(
+                'subject' => t('Tour Tour'),
+                'content' => tour_get_tour_home(),
+            );
+
+            break;
+        case 'tour_question':
+            $question = drupal_get_form('tour_question_form');
+            return array(
+                'subject' => t('Tour Question'),
+                'content' => $question,
+            );
+
+            break;
+
+    }
+}
+
+/**
+ * Implement tour_slider_render
+ */
+function _tour_slider(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','slider');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $result = $query->execute()->fetchAll();
+    $data = array();
+    if($result){
+        foreach($result as $r){
+            $data[] = node_load($r->nid);
+        }
+    }
+    return theme('tour_slider',array('nodes'=>$data));
+}
+
+/**
+ * Implement fooster
+ */
+function _tour_footer(){
+    return theme('tour_footer');
+}
+
+/**
+ * Implement get community
+ */
+function _getcommunity(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','community');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','ASC');
+    $result = $query->execute()->fetchAll();
+    $data = array();
+    if($result){
+        foreach($result as $r){
+            $data[] = node_load($r->nid);
+        }
+    }
+    return $data;
+}
+/**
+ * Implement tour service
+ */
+function _tour_service(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','service');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','ASC');
+    $result = $query->execute()->fetchAll();
+    $data = array();
+    if($result){
+        foreach($result as $r){
+            $data[] = node_load($r->nid);
+        }
+    }
+    return theme('tour_service',array('nodes'=>$data));
+}
+
+/**
+ * Implement Progress
+ */
+function _tour_progress(){
+    return theme('tour_progress');
+}
+
+/**
+ * Implement Testimonial
+ */
+function _tour_testimonial(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','testimonial');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','ASC');
+    $result = $query->execute()->fetchAll();
+    $data = array();
+    if($result){
+        foreach($result as $r){
+            $data[] = node_load($r->nid);
+        }
+    }
+    return theme('tour_testimonial',array('nodes'=>$data));
+}
+/**
+ * Implement convert date
+ */
+function _date_convert($date, $type = 'd/m/Y'){
+    $datetime = strtotime($date);
+    return date($type,$datetime);
+}
+
+/**
+ * Implement tour article home
+ */
+function _tour_article_home(){
+  $data = array();
+  $data['blog'] = _tour_get_blog();
+  $data['events'] =  _tour_get_events();
+  $data['news'] =  _tour_get_news();
+  return theme('tour_article_home',array('nodes'=>$data));
+}
+
+/**
+ * Get news
+ */
+
+function _tour_get_news(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','news');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->range(0,3);
+    $query->orderBy('created','DESC');
+    $result = $query->execute()->fetchAll();
+    $data = array();
+    if($result){
+        foreach($result as $r){
+            $data[] = node_load($r->nid);
+        }
+    }
+    return $data;
+}
+
+/**
+ * Get event
+ */
+
+function _tour_get_events(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','events');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->range(0,3);
+    $query->orderBy('created','DESC');
+    $result = $query->execute()->fetchAll();
+    $data = array();
+    if($result){
+        foreach($result as $r){
+            $data[] = node_load($r->nid);
+        }
+    }
+    return $data;
+}
+
+/**
+ * Get blog
+ */
+
+function _tour_get_blog(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','blog');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->range(0,3);
+    $query->orderBy('created','DESC');
+    $result = $query->execute()->fetchAll();
+    $data = array();
+    if($result){
+        foreach($result as $r){
+            $data[] = node_load($r->nid);
+        }
+    }
+    return $data;
+}
+
+/**
+ * count host
+ */
+function _count_host(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','host');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $result = $query->execute()->fetchAll();
+    $count = 0;
+    if($result){
+        $count = count($result);
+    }
+    return $count;
+}
+
+/**
+ * count tour
+ */
+function _count_tour(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','tour');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $result = $query->execute()->fetchAll();
+    $count = 0;
+    if($result){
+        $count = count($result);
+    }
+    return $count;
+}
+/**
+ * Implement step form
+ */
+function _tour_step_form(){
+    return theme('tour_step');
+}
+
+/**
+ * Implement hook_form_alter
+ */
+function tour_form_alter(&$form, &$form_state, $form_id){
+    if($form_id=='host_node_form' || $form_id=='tour_node_form'){
+      $form['actions']['submit']['#value'] = t('Next step');  
+    }
+}
+
+/**
+ * Implement get host news limit 8
+ */
+
+function tour_get_host_home(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','host');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $query->range(0,4);
+    $result = $query->execute()->fetchAll();
+    $nodes = array();
+    if($result){
+        foreach($result as $r){
+            $nodes[] = node_load($r->nid);
+        }
+    }
+    return theme('tour_host',array('nodes'=>$nodes));
+}
+/**
+ * 
+ */
+function tour_get_host_home_more(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','host');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $query->range(4,4);
+    $result = $query->execute()->fetchAll();
+    $nodes = array();
+    if($result){
+        foreach($result as $r){
+            $nodes[] = node_load($r->nid);
+        }
+    }
+    return $nodes;
+}
+/**
+ * get area name
+ */
+function _get_term_name($fields){
+    $area = array();
+    foreach($fields as $field){
+        $term = taxonomy_term_load($field['tid']);
+        $area[] = $term->name;
+    }
+    
+    return implode(', ',$area);
+    
+}
+/**
+ * get area name
+ */
+function _get_values_name($fields){
+    $area = array();
+    foreach($fields as $field){
+        $area[] = $field['value'];
+    }
+    
+    return implode(', ',$area);
+    
+}
+
+/**
+ * Implement get tour news limit 6
+ */
+
+function tour_get_tour_home(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','tour');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $query->range(0,3);
+    $result = $query->execute()->fetchAll();
+    $nodes = array();
+    if($result){
+        foreach($result as $r){
+            $nodes[] = node_load($r->nid);
+        }
+    }
+    return theme('tour_tour',array('nodes'=>$nodes));
+}
+/**
+ * 
+ */
+function tour_get_tour_home_more(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','tour');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $query->range(3,3);
+    $result = $query->execute()->fetchAll();
+    $nodes = array();
+    if($result){
+        foreach($result as $r){
+            $nodes[] = node_load($r->nid);
+        }
+    }
+    return $nodes;
+}
+
+/**
+ * Question answer
+ */
+function tour_question_answer(){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->condition('type','question');
+    $query->condition('status',NODE_PUBLISHED);
+    $query->condition('language',$language->language);
+    $query->orderBy('created','DESC');
+    $result = $query->execute()->fetchAll();
+    $nodes = array();
+    if($result){
+        foreach($result as $r){
+            $nodes[] = node_load($r->nid);
+        }
+    }
+    return theme('tour_qa',array('nodes'=>$nodes));
+}
+
+/**
+ * Get answer from question
+ */
+function _get_answer_question($nid){
+    global $language;
+    $query = db_select('node','n');
+    $query->fields('n');
+    $query->join('field_data_field_questions','q','n.nid = q.entity_id');
+    $query->condition('n.type','answer');
+    $query->condition('n.language',$language->language);
+    $query->condition('n.status',NODE_PUBLISHED);
+    $query->condition('q.field_questions_target_id',$nid);
+    $query->orderBy('n.created','DESC');
+    $result = $query->execute()->fetchAll();
+    $data = false;
+    if($result){
+        foreach($result as $r){
+            $node = node_load($r->nid);
+            $data .=$node->body[LANGUAGE_NONE][0]['value'].'<br />';
+        }
+        
+    }    
+   return $data;
+    
+}
+
+/**
+ * Question form
+ */
+function tour_question_form($form, &$form_state){
+    $form['info'] = array(
+        '#markup'=>'<div class="question-info"><h3>'.t('Please make your question.').'</h3></div>'
+    );
+    $form['question'] = array(
+        '#type'=>'textfield',
+        '#title'=>t('Question'),
+        '#require'=>true
+    );
+    $form['submit'] = array(
+        '#type'=>'submit',
+        '#value'=>t('Post your question')
+    );
+    return $form;
+}
+
+/**
+ * Question form
+ */
+function tour_question_form_validate($form, &$form_state){
+    if(empty($form_state['values']['question'])){
+        form_set_error('question',t('Please add your question'));
+    }
+}
+
+/**
+ * Question form
+ */
+function tour_question_form_submit($form, &$form_state){
+    global $language;
+    $question = $form_state['values']['question'];
+    $node = new stdClass();
+    $node->type = 'question';
+    $node->status = 1;
+    $node->language = $language->language;
+    $node->title = $question;
+    $node->uid = 0;
+    $node->created = REQUEST_TIME;
+    node_save($node);
+    drupal_set_message('Make question success.');
+}
+
+/**
+ * function confirm info host
+ */
+
+function host_confirm(){
+    if(isset($_GET['type']) && $_GET['type']=='host' 
+            && isset($_GET['step']) && $_GET['step']==2 &&
+            isset($_GET['host']) && is_numeric($_GET['host'])){
+        $node = node_load($_GET['host']);
+        return theme('tour_host_confirm',array('fields'=>_get_field_type('host'),'node'=>$node,'step'=>$_GET['step']));
+    }
+    drupal_goto('node/add/host');
+}
+
+/**
+ * function confirm info tour
+ */
+
+function tour_confirm(){
+    if(isset($_GET['type']) && $_GET['type']=='tour' 
+            && isset($_GET['step']) && $_GET['step']==2 &&
+            isset($_GET['tour']) && is_numeric($_GET['tour'])){
+        $node = node_load($_GET['tour']);
+        return theme('tour_host_confirm',array('fields'=>_get_field_type('tour'),'node'=>$node,'step'=>$_GET['step']));
+    }
+    drupal_goto('node/add/tour');
+}
+
+/**
+ * Get field type
+ */
+function _get_field_type($type){
+    $fields = field_info_instances("node", $type);
+    $element = array();
+    foreach($fields as $field_name => $field){
+        $element[$field['widget']['weight']] = $field;
+    }
+    
+    return $element;
+}
+
+/**
+ * cancel tour host
+ */
+function host_tour_cancel($node){
+    node_delete($node->nid);
+    drupal_goto('<front>');
+}
+
+/**
+ * finish host
+ */
+function host_finish(){
+    return '&nbsp;';
+}
+
+/**
+ * finish host
+ */
+function tour_finish(){
+    return '&nbsp;';
+}
+
+/**
+ * purchase a tour
+ */
+function tour_purchase($type, $node){
+    $form = drupal_get_form('tour_purchase_form');
+    $purchase = render($form);
+    return $purchase;
+}
+
+function tour_purchase_form($form, &$form_state){
+    $node = node_load(arg(2));
+    $type = arg(1);
+    $fee = 0;
+    $hour = '';
+    if($type=='host'){
+        $fee = $node->field_hour_rate[LANGUAGE_NONE][0]['value'];
+        $hour = 1;
+    }else{
+        $fee = $node->field_tour_fee[LANGUAGE_NONE][0]['value'];
+    }
+    $form['full_name'] = array(
+        '#title'=>t('Full Name'),
+        '#type'=>'textfield',
+        '#require'=>true
+    );
+    $form['stay_address'] = array(
+        '#title'=>t('Stay address'),
+        '#type'=>'textfield',
+        '#require'=>true
+    );
+    $form['phone'] = array(
+        '#title'=>t('Your mobile phone'),
+        '#type'=>'textfield',
+        '#require'=>true
+    );
+    $form['passport'] = array(
+        '#title'=>t('Passport number'),
+        '#type'=>'textfield',
+        '#require'=>true
+    );
+    $form['start_date'] = array(
+        '#title'=>t('Start day'),
+        '#type'=>'date_popup',
+        '#require'=>true,
+        '#date_format' => 'Y-m-d',
+        '#date_year_range' => '-10:+10',
+        '#default_value'=> date('Y-m-d h:i:s')
+    );
+    $form['end_date'] = array(
+        '#title'=>t('End day'),
+        '#type'=>'date_popup',
+        '#require'=>true,
+        '#date_format' => 'Y-m-d',
+        '#date_year_range' => '-10:+10',
+        '#default_value'=> date('Y-m-d h:i:s')
+    );
+    $form['start_time'] = array(
+        '#title'=>t('Start time'),
+        '#type'=>'textfield',
+        '#require'=>true,
+        '#default_value'=> date('h:i',time())
+    );
+    $form['end_time'] = array(
+        '#title'=>t('End time'),
+        '#type'=>'textfield',
+        '#require'=>true,
+        '#default_value'=> date('h:i',time())
+    );
+    $form['total_hours'] = array(
+        '#title'=>t('Total hours'),
+        '#type'=>'textfield',
+        '#require'=>true,
+        '#default_value'=>$hour,
+    );
+    $form['total_fee'] = array(
+        '#title'=>t('Total fee'),
+        '#type'=>'textfield',
+        '#require'=>true,
+        '#disabled' => TRUE,
+        '#default_value'=>$fee
+    );
+    $form['total_fee_use'] = array(
+        '#type'=>'hidden',
+        '#value'=>$fee,
+    );
+    $form['total_type'] = array(
+        '#type'=>'hidden',
+        '#value'=>$type,
+    );
+    $form['service_name'] = array(
+        '#type'=>'hidden',
+        '#value'=>$node->title,
+    );
+    $form['service_id'] = array(
+        '#type'=>'hidden',
+        '#value'=>$node->nid,
+    );
+    $form['meeting_place'] = array(
+        '#title'=>t('Meeting place'),
+        '#type'=>'textfield',
+        '#require'=>true
+    );
+    $form['remark'] = array(
+        '#title'=>t('Remark'),
+        '#type'=>'textarea',
+        '#require'=>false
+    );
+    $form['button_paypal'] = array(
+        '#type'=>'submit',
+        '#value'=>t('Confirm to purchase'),
+        '#prefix'=>'<div class="submit-paypal">',
+        '#suffix'=>'</div>'
+    );
+    return $form;
+}
+
+/**
+ * form validate
+ */
+function tour_purchase_form_validate($form, &$form_state){
+    if(empty($form_state['values']['full_name'])){
+        form_set_error('full_name',t('Enter your full name'));
+    }
+    if(empty($form_state['values']['stay_address'])){
+        form_set_error('stay_address',t('Enter your stay address'));
+    }
+    if(empty($form_state['values']['phone'])){
+        form_set_error('phone',t('Enter your mobile phone'));
+    }
+    if(empty($form_state['values']['passport'])){
+        form_set_error('full_name',t('Enter your passport number'));
+    }
+    if(empty($form_state['values']['start_date'])){
+        form_set_error('start_date',t('Enter start date'));
+    }
+    if(empty($form_state['values']['end_date'])){
+        form_set_error('end_date',t('Enter end date'));
+    }
+    if(empty($form_state['values']['start_time'])){
+        form_set_error('start_time',t('Enter start time'));
+    }
+    if(empty($form_state['values']['end_time'])){
+        form_set_error('end_time',t('Enter end time'));
+    }
+        if(arg(1)=='host'){
+           if(empty($form_state['values']['total_hours'])){
+            form_set_error('total_hours',t('Enter total hours'));
+        } 
+    }
+    
+    if(empty($form_state['values']['meeting_place'])){
+        form_set_error('meeting_place',t('Enter meeting place'));
+    }
+}
+/**
+ * form submit purchase
+ */
+function tour_purchase_form_submit($form, &$form_state){
+    global $language;
+    $data = $form_state['values'];
+    $node = new stdClass();
+    $node->type = 'orders';
+    $node->uid = 0;
+    $node->status = 0;
+    $node->created = REQUEST_TIME;
+    $node->field_order_status[LANGUAGE_NONE][0]['value'] = 0;
+    $node->field_order_type[LANGUAGE_NONE][0]['value'] = $data['total_type'];
+    $node->field_order_date[LANGUAGE_NONE][0]['value'] = REQUEST_TIME;
+    $node->title = 'ORD-'.$data['total_type'].'-'.REQUEST_TIME;
+    $node->language = $language->language;
+    $node->field_full_name[LANGUAGE_NONE][0]['value'] = $data['full_name'];
+    $node->field_stay_address[LANGUAGE_NONE][0]['value'] = $data['stay_address'];
+    $node->field_mobile_phone[LANGUAGE_NONE][0]['value'] = $data['phone'];
+    $node->field_passport_number[LANGUAGE_NONE][0]['value'] = $data['passport'];
+    $node->field_start_day[LANGUAGE_NONE][0]['value'] = strtotime($data['start_date'].' 00:00:00');
+    $node->field_end_day[LANGUAGE_NONE][0]['value'] = strtotime($data['end_date'].' 00:00:00');
+    $node->field_start_time[LANGUAGE_NONE][0]['value'] = $data['start_time'];
+    $node->field_end_time[LANGUAGE_NONE][0]['value'] = $data['end_time'];
+    $node->field_total_hours[LANGUAGE_NONE][0]['value'] = $data['total_hours'];
+    $node->field_service_name[LANGUAGE_NONE][0]['value'] = $data['service_name'];
+    $node->field_service_id[LANGUAGE_NONE][0]['target_id'] = $data['service_id'];
+    $fee = $data['total_fee_use'];
+    if($data['total_type'] =='host' ){
+        $fee = $fee * $data['total_hours'];
+    }
+    $node->field_total_fee[LANGUAGE_NONE][0]['value'] = $fee;
+    $node->field_meeting_place[LANGUAGE_NONE][0]['value'] = $data['meeting_place'];
+    $node->field_remark[LANGUAGE_NONE][0]['value'] = $data['remark'];
+    node_save($node);
+    
+    drupal_goto('purchase/confirm/'.$node->nid,array('query'=>array('step'=>2)));
+}
+
+/**
+ * confirm purchase
+ */
+function tour_purchase_confirm($node){
+    return theme('tour_purchase_confirm',array('node'=>$node));
+}
+
+/**
+ * purchase drupal
+ */
+function tour_purchase_paypal($node){
+    global $language;
+    $curreny = 'USD';
+    $fee = $node->field_total_fee[LANGUAGE_NONE][0]['value'];
+    $item = node_load($node->field_service_id[LANGUAGE_NONE][0]['target_id']);
+    $owner = 0;
+    $seller = 0;
+    $email_owner = $item->field_paypal_account[LANGUAGE_NONE][0]['value'];
+    $email_seller = APIEMAIL;
+    if(PAYPAL_PERCENT==0){
+        $owner = $fee * 80 /100;
+        $seller = $fee * 20 /100;
+    }
+    if(PAYPAL_PERCENT==1){
+        $owner = $fee * 70 / 100;
+        $seller = $fee * 30 /100;
+    }
+    if(PAYPAL_PERCENT==2){
+        $owner = $fee * 60 /100;
+        $seller = $fee * 40 /100;
+    }
+    if(PAYPAL_PERCENT==3){
+        $owner = $fee * 50 /100;
+        $seller = $fee * 50 /100;
+    }
+    if($language->language=='ja'){
+        $curreny = 'JPY';
+    }
+    //set array
+    $data = array();
+    $data['owner']['amount'] = $owner;
+    $data['owner']['email'] = $email_owner;
+    $data['seller']['amount'] = $seller;
+    $data['seller']['email'] = $email_seller;
+    $data['nid'] = $node->nid;
+    $data['currency'] = $curreny;
+    //purchase
+    $payment = new PaypalAdaptive();
+    $respone = $payment->splitPay($data);
+    if($respone['responseEnvelope']['ack']=='Success'){
+        $url = APIURL_RETURN.$respone['payKey'];
+        if(APISANBOX=='sandbox'){
+            $url = APISANBOX_RETURN.$respone['payKey'];
+        }
+        drupal_goto($url);
+    }
+}
+
+/**
+ * Implement hook_node_view
+ */
+function tour_node_view($node){
+    if(isset($_GET['orderId']) && is_numeric($_GET['orderId'])){
+        $order = node_load($_GET['orderId']);
+        if($order){
+            $order->field_order_status[LANGUAGE_NONE][0]['value'] = 1;
+            node_save($order);
+        }
+    }
+}
+
+/**
+ * Implement hook_form_views alter
+ */
+function tour_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if($form['#id']=='views-exposed-form-hosts-page'){
+     $form['field_guidable_area_tid']['#options']['All'] = t('Hokkaido ~ Okinawa');
+     $form['field_supported_languages_tid']['#options']['All'] = t('Interpreter language');
+  }
+  if($form['#id']=='views-exposed-form-tours-page'){
+     $form['field_guidable_area_tid']['#options']['All'] = t('Hokkaido ~ Okinawa');
+     $form['field_supported_languages_tid']['#options']['All'] = t('Interpreter language');
+     $form['field_tour_theme_tid']['#options']['All'] = t('Theme & Category');
+  }
+}
+
+/**
+ * admin dashboard
+ */
+function tour_admins_dashboard(){
+    return theme('admin_dashboard');
+}
+
