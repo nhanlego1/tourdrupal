@@ -13,6 +13,7 @@
         <li class="manage"><a href="/admin/hosts?destination=admin/dashboard">Manage hosts</a></li>
         <li class="manage"><a href="/admin/content/comment?destination=admin/dashboard">Manage comment</a></li>
         <li class="manage"><a href="/admin/sliders?destination=admin/dashboard">Manage slider home</a></li>
+        <li class="manage"><a href="/admin/banner?destination=admin/dashboard">Manage Banner</a></li>
         <li class="manage"><a href="/admin/blog?destination=admin/dashboard">Manage Blog</a></li>
         <li class="manage"><a href="/admin/news?destination=admin/dashboard">Manage News</a></li>
         <li class="manage"><a href="/admin/events?destination=admin/dashboard">Manage Events</a></li>
@@ -55,6 +56,7 @@
         <li class="add"><a href="/node/add/events?destination=admin/dashboard">Add Events</a></li>
         <li class="add"><a href="/node/add/news?destination=admin/dashboard">Add News</a></li>
         <li class="add"><a href="/node/add/slider?destination=admin/dashboard">Add Slider</a></li>
+        <li class="add"><a href="/node/add/banner?destination=admin/dashboard">Add Banner</a></li>
         <li class="add"><a href="/node/add/gallery?destination=admin/dashboard">Add Gallery</a></li>
         <li class="add"><a href="/node/add/service?destination=admin/dashboard">Add Service</a></li>
         <li class="add"><a href="/node/add/testimonial?destination=admin/dashboard">Add Testimonial</a></li>
