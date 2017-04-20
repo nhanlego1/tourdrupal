@@ -93,7 +93,7 @@
             </div>
         </header>
         <!--header banner and title-->
-        <div class="header1">
+        <div class="header1" <?php if(_get_template_bg_header()): ?> style="background: url(<?php print _get_template_bg_header() ?>) 0% 0% / cover" <?php endif; ?>>
             <?php if ($title): ?>
                 <div class="title-top">
                     <h2><?php print $title; ?></h2>

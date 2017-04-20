@@ -2942,7 +2942,7 @@ input[type="email"], input[type="tel"] {
     margin-right: 14px;
 }
 .header1{
-    height: 328px; background: url(../images/bg-2.jpg) 0% 0% / cover; margin-top: 0px;
+    height: 300px; background: url(../images/bg-2.jpg) 0% 0% / cover; margin-top: 0px;
 }
 #block-locale-language{
     width: 80px;
