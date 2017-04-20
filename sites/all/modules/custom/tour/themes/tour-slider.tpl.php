@@ -10,7 +10,7 @@
     <div class="slider-wrapper theme-default">
         <div id="slider" class="nivoSlider">
             <?php foreach ($nodes as $node): ?>
-                <?php print theme('image_style', array('path' => $node->field_image[LANGUAGE_NONE][0]['uri'], 'style_name' => 'original', 'attributes' => array('title' => '#slidecaption' . $node->nid))); ?>
+                <?php print theme('image_style', array('path' => $node->field_image[LANGUAGE_NONE][0]['uri'], 'style_name' => 'slider', 'attributes' => array('title' => '#slidecaption' . $node->nid))); ?>
             <?php endforeach; ?>
         </div>
         <?php foreach ($nodes as $node): ?>
