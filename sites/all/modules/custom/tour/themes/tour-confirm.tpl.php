@@ -35,11 +35,11 @@
 
             <tr>
                 <th><?php print t('Course Name'); ?> </th>
-                <td><?php print $node->field_tour_schedule_image ?></td>
+                <td><?php print $node->field_tour_schedule_image[LANGUAGE_NONE][0]['value'] ?></td>
             </tr>
             <tr>
                 <th><?php print t('Time'); ?> </th>
-                <td><?php print $node->field_time ?></td>
+                <td><?php print $node->field_time[LANGUAGE_NONE][0]['value'] ?></td>
             </tr>
             <tr>
                 <th><?php print t('The meeting place'); ?> </th>
