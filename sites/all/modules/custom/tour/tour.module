@@ -93,7 +93,7 @@ function tour_menu()
     );
     
     $items['admin/dashboard'] = array(
-        'title' => 'Admin Dashboard ',
+        'title' => t('Admin Dashboard'),
         'description' => 'Control config for Tour.',
         'page callback' => 'tour_admins_dashboard',
         'access arguments' => array('administer tour'),
