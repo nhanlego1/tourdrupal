@@ -560,6 +560,7 @@ function tour_form_alter(&$form, &$form_state, $form_id){
     if($form_id=='tour_node_form'){
        $form['actions']['submit']['#value'] = t('Next step');
        $form['#theme'] = array('tour_tour_form');
+       $form['field_guidable_area'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
     }
 }
 
