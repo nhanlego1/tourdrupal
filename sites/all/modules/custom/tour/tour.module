@@ -173,10 +173,15 @@ function tour_theme()
         'path' => drupal_get_path('module', 'tour') . '/themes',
         'template' => 'tour-qa',
     );
-    $items['tour_host_confirm'] = array(
+    $items['host_confirm'] = array(
         'render element' => 'element',
         'path' => drupal_get_path('module', 'tour') . '/themes',
-        'template' => 'tour-host-confirm',
+        'template' => 'host-confirm',
+    );
+    $items['tour_confirm'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-confirm',
     );
      $items['tour_purchase_confirm'] = array(
         'render element' => 'element',
@@ -187,6 +192,16 @@ function tour_theme()
         'render element' => 'element',
         'path' => drupal_get_path('module', 'tour') . '/themes',
         'template' => 'tour-admin-dashboard',
+    );
+      $items['tour_host_form'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-host-form',
+    );
+        $items['tour_tour_form'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-tour-form',
     );
     return $items;
 }
@@ -528,8 +543,23 @@ function _tour_step_form(){
  * Implement hook_form_alter
  */
 function tour_form_alter(&$form, &$form_state, $form_id){
-    if($form_id=='host_node_form' || $form_id=='tour_node_form'){
-      $form['actions']['submit']['#value'] = t('Next step');  
+    if($form_id=='host_node_form'){
+      $form['actions']['submit']['#value'] = t('Next step');
+       $form['#theme'] = array('tour_host_form');
+       $form['field_prefectures'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
+       $form['field_guidearea1'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
+       $form['field_guidearea2'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
+       $form['field_guidearea3'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
+       $form['field_guidearea4'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
+       $form['field_city1'][LANGUAGE_NONE]['#options'] = _list_select('city');
+       $form['field_city2'][LANGUAGE_NONE]['#options'] = _list_select('city');
+       $form['field_city3'][LANGUAGE_NONE]['#options'] = _list_select('city');
+       $form['field_city4'][LANGUAGE_NONE]['#options'] = _list_select('city');
+       
+    }
+    if($form_id=='tour_node_form'){
+       $form['actions']['submit']['#value'] = t('Next step');
+       $form['#theme'] = array('tour_tour_form');
     }
 }
 
@@ -595,7 +625,7 @@ function _get_term_name($fields){
 function _get_values_name($fields){
     $area = array();
     foreach($fields as $field){
-        $area[] = $field['value'];
+        $area[] = t($field['value']);
     }
     
     return implode(', ',$area);
@@ -747,7 +777,7 @@ function host_confirm(){
             && isset($_GET['step']) && $_GET['step']==2 &&
             isset($_GET['host']) && is_numeric($_GET['host'])){
         $node = node_load($_GET['host']);
-        return theme('tour_host_confirm',array('fields'=>_get_field_type('host'),'node'=>$node,'step'=>$_GET['step']));
+        return theme('host_confirm',array('fields'=>_get_field_type('host'),'node'=>$node,'step'=>$_GET['step']));
     }
     drupal_goto('node/add/host');
 }
@@ -761,7 +791,7 @@ function tour_confirm(){
             && isset($_GET['step']) && $_GET['step']==2 &&
             isset($_GET['tour']) && is_numeric($_GET['tour'])){
         $node = node_load($_GET['tour']);
-        return theme('tour_host_confirm',array('fields'=>_get_field_type('tour'),'node'=>$node,'step'=>$_GET['step']));
+        return theme('tour_confirm',array('fields'=>_get_field_type('tour'),'node'=>$node,'step'=>$_GET['step']));
     }
     drupal_goto('node/add/tour');
 }
@@ -1070,12 +1100,15 @@ function tour_node_view($node){
  */
 function tour_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
   if($form['#id']=='views-exposed-form-hosts-page'){
-     $form['field_guidable_area_tid']['#options']['All'] = t('Hokkaido ~ Okinawa');
-     $form['field_supported_languages_tid']['#options']['All'] = t('Interpreter language');
+     //$form['field_guidable_area_tid']['#options']['All'] = t('Prefectures');
+     $form['field_guidable_area_tid']['#options'] = _outergroup_select('region',t('Prefectures'));
+     $form['field_city_tid']['#options']['All'] = t('City');
+     $form['field_supported_languages_tid']['#options']['All'] = t('Language');
+     
   }
   if($form['#id']=='views-exposed-form-tours-page'){
-     $form['field_guidable_area_tid']['#options']['All'] = t('Hokkaido ~ Okinawa');
-     $form['field_supported_languages_tid']['#options']['All'] = t('Interpreter language');
+     $form['field_guidable_area_tid']['#options'] = _outergroup_select('region',t('Prefectures'));
+     $form['field_supported_languages_tid']['#options']['All'] = t('Language');
      $form['field_tour_theme_tid']['#options']['All'] = t('Theme & Category');
   }
 }
@@ -1085,5 +1118,70 @@ function tour_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
  */
 function tour_admins_dashboard(){
     return theme('admin_dashboard');
+}
+/**
+ * Get term name text
+ */
+function _tour_get_term_name($tid){
+    $term = taxonomy_term_load($tid);
+    return $term->name;
+}
+
+/**
+ * function set outer group
+ */
+function _outergroup_select($name,$all = false){
+    $voca = taxonomy_vocabulary_machine_name_load($name);
+    //dsm($voca);
+    $terms = taxonomy_get_tree($voca->vid);
+    $options = array();
+    if(!empty($all)){
+       $options['All'] = $all; 
+    }
+     foreach ($terms as $term) {
+      if($term->parents[0]==0){
+          $options[$term->name] = array();
+          $children = taxonomy_get_children($term->tid);
+          foreach ($children as $child) {
+             $options[$term->name][$child->tid] = $child->name;
+          }
+      }
+    }
+    return $options;
+}
+/**
+ * function set outer group
+ */
+function _list_select($name,$all = false){
+    $voca = taxonomy_vocabulary_machine_name_load($name);
+    //dsm($voca);
+    $terms = taxonomy_get_tree($voca->vid);
+    $options = array();
+    if(!empty($all)){
+       $options['All'] = $all; 
+    }
+     foreach ($terms as $term) {
+          $options[$term->tid] = $term->name;
+      }
+    return $options;
+}
+/**
+ * Implement node_resave
+ */
+function tour_node_presave($node){
+    if($node->type=='host'){
+        $guide = array();
+        $guide[]['tid'] = $node->field_guidearea1[LANGUAGE_NONE][0]['tid'];
+        $guide[]['tid'] = $node->field_guidearea2[LANGUAGE_NONE][0]['tid'];
+        $guide[]['tid'] = $node->field_guidearea3[LANGUAGE_NONE][0]['tid'];
+        $guide[]['tid'] = $node->field_guidearea4[LANGUAGE_NONE][0]['tid'];
+        $node->field_guidable_area[LANGUAGE_NONE] = $guide;
+        $city = array();
+        $city[]['tid'] = $node->field_city1[LANGUAGE_NONE][0]['tid'];
+        $city[]['tid'] = $node->field_city2[LANGUAGE_NONE][0]['tid'];
+        $city[]['tid'] = $node->field_city3[LANGUAGE_NONE][0]['tid'];
+        $city[]['tid'] = $node->field_city4[LANGUAGE_NONE][0]['tid'];
+        $node->field_city[LANGUAGE_NONE] = $city;
+    }
 }
 

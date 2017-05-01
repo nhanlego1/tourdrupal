@@ -3001,11 +3001,10 @@ span.fa{
 .node-form input[type="text"], .node-form select {
     width: 50%;
     float: left;
-    padding: 10px 5px;
-    height: 40px;
+    height: 33px;
 }
 .node-form textarea{
-    width: 50%;
+    width: 86%;
     float: left;
     padding: 10px 5px;
 }
@@ -3019,10 +3018,11 @@ span.fa{
     max-height: 240px;
     -webkit-overflow-scrolling: touch;
 }
-.node-form .form-type-checkbox{
-    width: 10%;
+.node-form .form-type-checkbox {
+    width: 15%;
     float: left;
     display: inline-block;
+    margin-left: 10px;
 }
 .node-form .form-type-checkbox label{
     width: 90%;
@@ -3045,11 +3045,7 @@ span.fa{
     background-color: transparent!important;
 }
 .panel-body{
-    width: 80%;
-    float: right;
-    right: 2%;
-    top: -46px;
-    position: relative;
+
 }
 .addressfield-container .form-item, .street-block .form-item{
     width: 64%;
@@ -3076,10 +3072,9 @@ span.fa{
 .image-widget-data .input-group{
     width: 64%;
 }
-.node-form .form-actions{
-    position: relative;
-    margin-left:33%;
-    top:-70px;
+.node-form .form-actions {
+    width: 100%;
+    text-align: center;
 }
 .field-name-field-image-photo label{
     display: none;
@@ -3109,7 +3104,7 @@ span.fa{
     height: 44px;
 }
 .date-combo.panel .date-padding{
-    width: 60%;
+    width: 100%;
 }
 .date-combo.panel label{
     display: none;
@@ -3178,7 +3173,7 @@ fieldset.field-group-fieldset.panel{
     border-color: #247830;
 }
 #tour-node-form, #host-node-form{
-    padding-left: 22%;
+    /*    padding-left: 22%;*/
 }
 .menu-block-1.menu-name-main-menu ul li span {
     display: block;
@@ -3227,7 +3222,7 @@ ul.dropdown-menu li a{
     float: left;
     margin-left: 10px;
     margin-right: 10px;
-    
+
 }
 .view-gallery .views-field-field-gallery-images a.cboxElement img{
     border-radius: 10px;
@@ -3281,14 +3276,14 @@ ul.dropdown-menu li a{
     color: #313338;
     font-size: 26px;
     margin-left: 35px;
-   
+
 }
 .question-answer ul li .answer{
     font-family: HelveticaNeue-CondensedBold;
     color: #313338;
     font-size: 18px;
-     margin-top: 15px;
-     display: none;
+    margin-top: 15px;
+    display: none;
 }
 #block-tour-tour-question{
     background: #fff;
@@ -3445,13 +3440,16 @@ tr:nth-child(odd) {
 
 #edit-field-guidable-area-tid, 
 #edit-field-supported-languages-tid,
-#edit-field-tour-theme-tid{
+#edit-field-tour-theme-tid,
+#edit-field-city-tid{
     background: #446cff;
     height: 34px;
-    padding: 0px 0px;
+    padding: 0px 10px;
     border-radius: 3px;
     border-color: #cccc00;
     color: #fff;
+    width: 150px;
+    text-align: center;
 }
 #views-exposed-form-hosts-page{
     padding-bottom: 10px;
@@ -3480,5 +3478,170 @@ tr:nth-child(odd) {
 .view-links .views-row .views-field-title{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.field-name-field-moving-means .field-item{
+    float: left;
+    padding-right: 5px;
+}
+.field-name-field-moving-means .field-item:after{
+    content: ',';
+}
+.field-name-field-moving-means .field-item:last-child:after{
+    content: '';
+}
+#edit-comment-body-und-0-format{
+    display:none;
+}
+.view-hosts .row.host .col-md-4{
+    min-height: 525px;
+}
+.page-host-confirm .alert-success.messages,
+.page-tour-confirm .alert-success.messages{
+    display: none;
+}
+#tour-node-form th, #host-node-form th,
+.page-host-confirm th{
+    /*    padding-left: 22%;*/
+    width: 30%;
+    border: 1px solid #D5D5D5;
+    text-align: center;
+}
+
+#tour-node-form table, #host-node-form table,
+.page-host-confirm table{
+    width: 100%;
+    background-color: #F2F2F2;
+}
+
+#tour-node-form table td label, #host-node-form table td label{
+    display: none;
+}
+em.required{
+    color: red;
+}
+#tour-node-form table td, 
+#host-node-form table td,
+.page-host-confirm table td{
+    border: 1px solid #D5D5D5;
+}
+td.group-fields p{
+    float: left;
+    width: 25%;
+    padding-left: 30px;
+
+}
+#edit-field-birthday .panel-heading{
+    display: none;
+}
+#edit-field-birthday .panel-body {
+    padding: 8px 8px 8px 0px;
+}
+#tour-node-form table td #edit-field-supported-languages label, 
+#host-node-form table td #edit-field-supported-languages label{
+    display: block;
+}
+#tour-node-form table td #edit-field-permitted-early label, 
+#host-node-form table td #edit-field-permitted-early label{
+    display: block;
+}
+#tour-node-form table td #edit-field-moving-means label, 
+#host-node-form table td #edit-field-moving-means label,
+#tour-node-form table td #edit-field-tour-theme label{
+    display: block;
+}
+#edit-field-supported-languages label[for="edit-field-supported-languages-und"],
+#edit-field-permitted-early label[for="edit-field-permitted-early-und"],
+#edit-field-moving-means label[for="edit-field-moving-means-und"],
+#edit-field-tour-theme label[for="edit-field-tour-theme-und"],
+#edit-field-image-photo label[for="edit-field-image-photo-und"],
+#edit-field-image-photo-und .panel-heading
+{
+    display: none!important;
+}
+#edit-field-postal-code, #edit-field-prefectures, 
+#edit-field-municipality, #edit-field-addresses{
+    width: 70%;
+    float: left;
+    margin: 0;
+}
+#host-node-form table td span{
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+}
+#host-node-form table td span.span-recom{
+    padding-top: 20px;
+    width: 100%;
+    float: left;
+    font-weight: bold;
+}
+.help-block{
+    display: none;
+}
+.chosen-container-multi .chosen-choices{
+    background: none;
+    border: none;
+}
+#host-node-form  .messages-inline{
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.page-node-add-host .alert-danger.messages,
+.page-node-add-tour .alert-danger.messages{
+    display: none!important;
+}
+.dropdown-menu li{
+    width: 100%;
+}
+.page-host-confirm table tr th{
+    padding: 10px 0;
+}
+.page-host-confirm table tr td{
+    padding: 10px 0 10px 20px;
+}
+.page-host-confirm td.group-fields p {
+    float: left;
+    width: 31%;
+    padding-left: 0;
+}
+
+.page-node-add-host .form-actions .btn-default,
+.page-node-add-tour .form-actions .btn-default{
+    width: 11em;
+    color: #FFF;
+    background-color: #236;
+    padding-left: 4px;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+}
+.form-child-city{
+    width: 100%;
+}
+.form-child-city .prefecture{
+    width: 50%;
+    float: left;
+}
+.form-child-city .prefecture span{
+    width: 30%;
+    float: left;
+    padding-top: 22px;
+}
+.form-child-city .prefecture .form-type-select{
+    width: 50%;
+    float: left;
+}
+.form-child-city .prefecture .form-type-select select{
+    width: 85%;
+}
+
+
+.form-child-city .prefecture span:last-child{
+    width: 60%;
+}
+.node-type-company .container-fluid{
+    background: rgb(246, 246, 246)!important;
 }
 

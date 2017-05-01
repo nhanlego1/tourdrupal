@@ -458,10 +458,9 @@ p.progress-name{
     bottom: 0px;
     color: #fff;
     font-size: 20px;
-    left: 45px;
     width: 100%;
     left: 0px;
-    padding-left: 45px;
+    padding-left: 0;
     background-color: #7d7877;
     opacity: 0.8;
 }

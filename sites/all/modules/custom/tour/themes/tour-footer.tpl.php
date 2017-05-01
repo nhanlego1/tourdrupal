@@ -29,7 +29,7 @@
                 <div class="single_footer_widget">
                     <h3><?php print t('Others') ?></h3>
                     <ul class="footer_widget_nav">
-                        <li><a href="<?php print url('company') ?>"><?php print t('Company Profile');?></a>
+                        <li><a href="<?php print url('node/118') ?>"><?php print t('Company Profile');?></a>
                         </li>
                         <li><a href="<?php print url('contact') ?>"><?php print t('Inquiries')?></a>
                         </li>

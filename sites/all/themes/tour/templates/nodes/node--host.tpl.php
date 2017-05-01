@@ -123,7 +123,7 @@
                         </tr>
                         <tr>
                             <td><?php print t('Transportation') ?></td>
-                            <td><?php print _get_values_name($node->field_moving_means[LANGUAGE_NONE]); ?></td>
+                            <td><?php print render($content['field_moving_means']);//_get_values_name($node->field_moving_means[LANGUAGE_NONE]); ?></td>
                         </tr>
 
                         <tr>
@@ -132,7 +132,7 @@
                         </tr>
                         <tr>
                             <td><?php print t('Morning early / late at night') ?></td>
-                            <td><?php print $node->field_hourly_early[LANGUAGE_NONE][0]['value'] ?></td>
+                            <td><?php print render($content['field_hourly_early']) ?></td>
                         </tr>
 
                         <tr>

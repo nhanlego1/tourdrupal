@@ -8,15 +8,15 @@
 
 <div class="newsfeed_area wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">
     <ul id="myTab2" class="nav nav-tabs feed_tabs">
-        <li class="active"><a href="#notice" data-toggle="tab" aria-expanded="false"><?php print t('Blog') ?></a></li>
+        <li class="active"><a href="#notice" data-toggle="tab" aria-expanded="true"><?php print t('Blog') ?></a></li>
         <li class=""><a href="#news" data-toggle="tab" aria-expanded="false"><?php print t('News') ?></a></li>
-        <li class=""><a href="#events" data-toggle="tab" aria-expanded="true"><?php print t('Events') ?></a></li>
+        <li class=""><a href="#events" data-toggle="tab" aria-expanded="false"><?php print t('Events') ?></a></li>
     </ul>
     <div class="tab-content bg_red_tab" style="display: none;">
 
         <!-- Start notice tab content -->
-        <div id="notice" class="tab-pane fade">
-            <ul class="news_tab">
+        <div id="notice" class="tab-pane active in fade">
+            <ul class="blog_tab">
                 <?php if ($nodes['blog']): ?>
                     <?php foreach ($nodes['blog'] as $blog): ?>
                         <li>
@@ -30,7 +30,7 @@
                                     <a tabindex="0"
                                        href="<?php print url('node/' . $blog->nid) ?>"><b><?php print $blog->title ?></b></a>
                                     <p class="food_des"></p>
-                                    <p><?php print substr($blog->body[LANGUAGE_NONE][0]['value'], 0, 120) ?>...</p>
+                                    <p><?php print $blog->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
                                 </div>
                             </div>
                         </li>
@@ -57,7 +57,7 @@
                                     <a tabindex="0"
                                        href="<?php print url('node/' . $news->nid) ?>"><b><?php print $news->title ?></b></a>
                                     <p class="food_des"></p>
-                                    <p><?php print substr($news->body[LANGUAGE_NONE][0]['value'], 0, 120) ?>...</p>
+                                    <p><?php print $news->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
                                 </div>
                             </div>
                         </li>
@@ -69,7 +69,7 @@
 
         </div>
         <!-- Start events tab content -->
-        <div id="events" class="tab-pane fade active in">
+        <div id="events" class="tab-pane fade">
             <ul class="events_tab">
                 <?php if ($nodes['events']): ?>
                     <?php foreach ($nodes['news'] as $events): ?>
@@ -84,7 +84,7 @@
                                     <a tabindex="0"
                                        href="<?php print url('node/' . $events->nid) ?>"><b><?php print $events->title ?></b></a>
                                     <p class="food_des"></p>
-                                    <p><?php print substr($events->body[LANGUAGE_NONE][0]['value'], 0, 120) ?>...</p>
+                                    <p><?php print $events->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
                                 </div>
                             </div>
                         </li>

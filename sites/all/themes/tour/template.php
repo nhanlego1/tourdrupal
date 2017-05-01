@@ -24,6 +24,17 @@ function tour_preprocess_page(&$vars) {
     if ($_GET['q'] == 'node/add/host') {
         drupal_set_title(t('HOST SYSTEM GUIDE'));
     }
+    //set title for blog, news, events
+    $node = menu_get_object('node');
+    if($node->type=='blog'){
+        drupal_set_title(t('Blog'));
+    }
+    if($node->type=='news'){
+        drupal_set_title(t('News'));
+    }
+    if($node->type=='events'){
+        drupal_set_title(t('Events'));
+    }
 }
 
 /**
