@@ -3172,7 +3172,7 @@ fieldset.field-group-fieldset.panel{
     background-color: red!important;
     border-color: #247830;
 }
-#tour-node-form, #host-node-form{
+#tour-node-form, .node-host-form{
     /*    padding-left: 22%;*/
 }
 .menu-block-1.menu-name-main-menu ul li span {
@@ -3501,7 +3501,7 @@ tr:nth-child(odd) {
 .page-tour-confirm .alert-success.messages{
     display: none;
 }
-#tour-node-form th, #host-node-form th,
+#tour-node-form th, .node-host-form th,
 .page-host-confirm th{
     /*    padding-left: 22%;*/
     width: 30%;
@@ -3509,20 +3509,21 @@ tr:nth-child(odd) {
     text-align: center;
 }
 
-#tour-node-form table, #host-node-form table,
-.page-host-confirm table{
+#tour-node-form table, .node-host-form table,
+.page-host-confirm table,
+.node-host-form table{
     width: 100%;
     background-color: #F2F2F2;
 }
 
-#tour-node-form table td label, #host-node-form table td label{
+#tour-node-form table td label, .node-host-form table td label{
     display: none;
 }
 em.required{
     color: red;
 }
 #tour-node-form table td, 
-#host-node-form table td,
+.node-host-form table td,
 .page-host-confirm table td{
     border: 1px solid #D5D5D5;
 }
@@ -3539,15 +3540,15 @@ td.group-fields p{
     padding: 8px 8px 8px 0px;
 }
 #tour-node-form table td #edit-field-supported-languages label, 
-#host-node-form table td #edit-field-supported-languages label{
+.node-host-form table td #edit-field-supported-languages label{
     display: block;
 }
 #tour-node-form table td #edit-field-permitted-early label, 
-#host-node-form table td #edit-field-permitted-early label{
+.node-host-form table td #edit-field-permitted-early label{
     display: block;
 }
 #tour-node-form table td #edit-field-moving-means label, 
-#host-node-form table td #edit-field-moving-means label,
+.node-host-form table td #edit-field-moving-means label,
 #tour-node-form table td #edit-field-tour-theme label{
     display: block;
 }
@@ -3566,12 +3567,12 @@ td.group-fields p{
     float: left;
     margin: 0;
 }
-#host-node-form table td span{
+.node-host-form table td span{
     margin-left: 10px;
     margin-bottom: 10px;
 
 }
-#host-node-form table td span.span-recom{
+.node-host-form table td span.span-recom{
     padding-top: 20px;
     width: 100%;
     float: left;
@@ -3584,7 +3585,7 @@ td.group-fields p{
     background: none;
     border: none;
 }
-#host-node-form  .messages-inline{
+.node-host-form  .messages-inline{
     width: 100%;
     float: left;
     margin-bottom: 5px;
