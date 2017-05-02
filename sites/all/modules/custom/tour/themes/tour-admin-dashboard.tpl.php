@@ -28,6 +28,7 @@
         <li class="manage"><a href="/admin/testimonial?destination=admin/dashboard"><?php print t('Manage Testimonial')?></a></li>
         <li class="manage"><a href="/admin/community?destination=admin/dashboard"><?php print t('Manage Community')?></a></li>
         <li class="manage"><a href="/admin/structure/taxonomy/region?destination=admin/dashboard"><?php print t('Manage Prefecture')?> </a></li>
+        <li class="manage"><a href="/admin/structure/taxonomy/city?destination=admin/dashboard"><?php print t('Manage City')?> </a></li>
         <li class="manage"><a href="/admin/structure/taxonomy/theme_and_category?destination=admin/dashboard"><?php print t('Manage Theme and Category')?></a></li>
         <li class="manage"><a href="/admin/structure/taxonomy/language?destination=admin/dashboard"><?php print t('Manage Support Languages')?></a></li>
         <li class="manage"><a href="/admin/structure/taxonomy/blog?destination=admin/dashboard"><?php print t('Manage Blog Archive')?></a></li>
