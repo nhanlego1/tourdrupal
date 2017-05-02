@@ -3172,7 +3172,7 @@ fieldset.field-group-fieldset.panel{
     background-color: red!important;
     border-color: #247830;
 }
-#tour-node-form, .node-host-form{
+.node-tour-form, .node-host-form{
     /*    padding-left: 22%;*/
 }
 .menu-block-1.menu-name-main-menu ul li span {
@@ -3501,7 +3501,7 @@ tr:nth-child(odd) {
 .page-tour-confirm .alert-success.messages{
     display: none;
 }
-#tour-node-form th, .node-host-form th,
+.node-tour-form th, .node-host-form th,
 .page-host-confirm th{
     /*    padding-left: 22%;*/
     width: 30%;
@@ -3509,20 +3509,20 @@ tr:nth-child(odd) {
     text-align: center;
 }
 
-#tour-node-form table, .node-host-form table,
+.node-tour-form table, .node-host-form table,
 .page-host-confirm table,
 .node-host-form table{
     width: 100%;
     background-color: #F2F2F2;
 }
 
-#tour-node-form table td label, .node-host-form table td label{
+.node-tour-form table td label, .node-host-form table td label{
     display: none;
 }
 em.required{
     color: red;
 }
-#tour-node-form table td, 
+.node-tour-form table td, 
 .node-host-form table td,
 .page-host-confirm table td{
     border: 1px solid #D5D5D5;
@@ -3539,17 +3539,17 @@ td.group-fields p{
 #edit-field-birthday .panel-body {
     padding: 8px 8px 8px 0px;
 }
-#tour-node-form table td #edit-field-supported-languages label, 
+.node-tour-form table td #edit-field-supported-languages label, 
 .node-host-form table td #edit-field-supported-languages label{
     display: block;
 }
-#tour-node-form table td #edit-field-permitted-early label, 
+.node-tour-form table td #edit-field-permitted-early label, 
 .node-host-form table td #edit-field-permitted-early label{
     display: block;
 }
-#tour-node-form table td #edit-field-moving-means label, 
+.node-tour-form table td #edit-field-moving-means label, 
 .node-host-form table td #edit-field-moving-means label,
-#tour-node-form table td #edit-field-tour-theme label{
+.node-tour-form table td #edit-field-tour-theme label{
     display: block;
 }
 #edit-field-supported-languages label[for="edit-field-supported-languages-und"],
