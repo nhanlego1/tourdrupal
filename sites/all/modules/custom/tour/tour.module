@@ -45,6 +45,12 @@ function tour_menu()
         'page callback' => 'host_confirm',
         'type' => MENU_CALLBACK
     );
+     $items['backend'] = array(
+        'title'=> t('Admin System Login'),
+        'access arguments' => array('access content'),
+        'page callback' => 'tour_backend',
+        'type' => MENU_CALLBACK
+    );
      $items['tour/confirm'] = array(
         'title'=> t('Tour entry form'),
         'access arguments' => array('access content'),
@@ -1185,5 +1191,18 @@ function tour_node_presave($node){
         $city[]['tid'] = $node->field_city4[LANGUAGE_NONE][0]['tid'];
         $node->field_city[LANGUAGE_NONE] = $city;
     }
+}
+function tour_backend(){
+    global $user;
+    $login = '';
+    if($user->uid <=0){
+        $login .='<h2>'.t('Admin Dashboard').'</h2>';
+        $form = drupal_get_form('user_login');
+        $login .= render($form);
+        return $login; 
+    }else{
+        drupal_access_denied();
+    }
+   
 }
 

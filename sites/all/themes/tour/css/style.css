@@ -3689,3 +3689,10 @@ table.company td {
     text-align: left;
 }
 
+#main-wrapper-backend{
+    width: 300px;
+    position: relative;
+    left: 38%;
+    top: 100px;
+}
+
