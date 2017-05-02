@@ -3494,6 +3494,8 @@ tr:nth-child(odd) {
 }
 .view-hosts .row.host .col-md-4{
     min-height: 525px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .page-host-confirm .alert-success.messages,
 .page-tour-confirm .alert-success.messages{
