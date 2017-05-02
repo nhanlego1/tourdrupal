@@ -72,7 +72,7 @@
         <div id="events" class="tab-pane fade">
             <ul class="events_tab">
                 <?php if ($nodes['events']): ?>
-                    <?php foreach ($nodes['news'] as $events): ?>
+                    <?php foreach ($nodes['events'] as $events): ?>
                         <li>
                             <div class="media">
                                 <div class="media-left"><a class="news_img"
