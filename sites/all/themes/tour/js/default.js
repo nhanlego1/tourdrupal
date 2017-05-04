@@ -9,6 +9,101 @@
                  $('.answer-'+_nid).toggle(); 
               }); 
            });
+           $("li.dropdown").hover(function () {
+                $(this).addClass('open');
+            });
+            $("li.dropdown").mouseout(function () {
+                setTimeout(function () {
+                    $(this).removeClass('open');
+                }, '2000')
+
+            });
+            console.log('nhan');
+            $(".form-item-field-guidearea1-und select").change(function(){
+                console.log('nhan');
+                var tid = $(this).val();
+                $.post('/ajax/update/child', {pre: tid})
+                    .done(function (data) {
+                        if (data != 'ko') {
+                         $("#edit-field-city1-und").html(data);
+                      
+                        } else {
+                            
+                        }
+                        isWorking = false;
+                    })
+                    .fail(function () {
+                        //alert( "error" );
+                    });
+            });
+            $(".form-item-field-guidearea2-und select").change(function(){
+                console.log('nhan');
+                var tid = $(this).val();
+                $.post('/ajax/update/child', {pre: tid})
+                    .done(function (data) {
+                        if (data != 'ko') {
+                         $("#edit-field-city2-und").html(data);
+                      
+                        } else {
+                            
+                        }
+                        isWorking = false;
+                    })
+                    .fail(function () {
+                        //alert( "error" );
+                    });
+            });
+            $(".form-item-field-guidearea3-und select").change(function(){
+                console.log('nhan');
+                var tid = $(this).val();
+                $.post('/ajax/update/child', {pre: tid})
+                    .done(function (data) {
+                        if (data != 'ko') {
+                         $("#edit-field-city3-und").html(data);
+                      
+                        } else {
+                            
+                        }
+                        isWorking = false;
+                    })
+                    .fail(function () {
+                        //alert( "error" );
+                    });
+            });
+            $(".form-item-field-guidearea4-und select").change(function(){
+                console.log('nhan');
+                var tid = $(this).val();
+                $.post('/ajax/update/child', {pre: tid})
+                    .done(function (data) {
+                        if (data != 'ko') {
+                         $("#edit-field-city4-und").html(data);
+                      
+                        } else {
+                            
+                        }
+                        isWorking = false;
+                    })
+                    .fail(function () {
+                        //alert( "error" );
+                    });
+            });
+            $("select#edit-field-guidable-area-tid").change(function(){
+                console.log('nhan');
+                var tid = $(this).val();
+                $.post('/ajax/update/child', {pre: tid})
+                    .done(function (data) {
+                        if (data != 'ko') {
+                         $("#edit-field-city-tid").html(data);
+                      
+                        } else {
+                            
+                        }
+                        isWorking = false;
+                    })
+                    .fail(function () {
+                        //alert( "error" );
+                    });
+            });
         }
     };
 

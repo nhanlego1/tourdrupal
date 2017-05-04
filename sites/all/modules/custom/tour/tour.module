@@ -104,6 +104,18 @@ function tour_menu()
         'page callback' => 'tour_admins_dashboard',
         'access arguments' => array('administer tour'),
     );
+    $items['admin/import/city'] = array(
+        'title' => t('Admin Import City'),
+        'description' => 'Control config for Tour.',
+        'page callback' => 'tour_admins_import_city',
+        'access arguments' => array('access content'),
+    );
+    $items['ajax/update/child'] = array(
+        'title' => t('Admin Import City'),
+        'description' => 'Control config for Tour.',
+        'page callback' => 'tour_ajax_update_city',
+        'access arguments' => array('access content'),
+    );
     
   
     return $items;
@@ -1204,5 +1216,69 @@ function tour_backend(){
         drupal_access_denied();
     }
    
+}
+
+function tour_admins_import_city(){
+    $voca = taxonomy_vocabulary_machine_name_load('city');
+    $vid = $voca->vid;
+    include DRUPAL_ROOT.'/sites/all/modules/custom/tour/lib/PHPExcel/Classes/PHPExcel/IOFactory.php';
+    $inputFileName = DRUPAL_ROOT.'/listCity.xls';
+    $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
+
+    $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+    foreach($sheetData as $data){
+        if(!is_null($data['A']) && !is_null($data['B']) && !is_null($data['C']) && !is_null($data['D'])){
+            if(is_numeric($data['A']) && is_numeric($data['C'])){
+                //save for english
+                $term_en = new stdClass();
+                $term_en->name = $data['D'];
+                $term_en->vid = $vid;
+                $term_en->language = 'en';
+                $term_en->field_prefecture[LANGUAGE_NONE][0]['tid'] = $data['C'];
+                $term_en->parent = 0;
+                taxonomy_term_save($term_en);
+                
+                //save for japan
+                $term_jp = new stdClass();
+                $term_jp->name = $data['B'];
+                $term_jp->vid = $vid;
+                $term_jp->language = 'ja';
+                $term_jp->field_prefecture[LANGUAGE_NONE][0]['tid'] = $data['A'];
+                $term_jp->parent = 0;
+                taxonomy_term_save($term_jp);
+                
+            }
+        }
+    }
+    drupal_set_message('import success');
+    return 'Import success';
+
+}
+
+function tour_ajax_update_city(){
+    if(isset($_POST['pre'])){
+        $tid = $_POST['pre'];
+        $query = db_select('field_data_field_prefecture','pre');
+        $query->fields('pre');
+        $query->condition('field_prefecture_tid',$tid);
+        $result = $query->execute()->fetchAll();
+        $output = '';
+        if($result){
+            foreach($result as $r){
+                $term = taxonomy_term_load($r->entity_id);
+                $output .='<option value="'.$term->tid.'">'.$term->name.'</option>';
+            }
+        }
+        if($output !=''){
+            print $output;
+            drupal_exit();
+        }else{
+            print 'ko';
+            drupal_exit();
+        }
+        
+    }
+     print 'ko';
+     drupal_exit();
 }
 
