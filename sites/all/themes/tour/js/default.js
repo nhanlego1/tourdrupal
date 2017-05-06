@@ -106,7 +106,7 @@
             });
             
             $("button.navbar-toggle").click(function(){
-               $("ul.menu.nav").show(); 
+               $("ul.menu.nav").slideToggle(); 
             });
         }
     };
