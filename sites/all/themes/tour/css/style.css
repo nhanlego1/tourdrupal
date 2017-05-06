@@ -3980,6 +3980,9 @@ table.company td {
     .form-child-city .prefecture .form-type-select select {
         width: 100%;
     }
+    .header {
+        position: fixed!important;
+    }
 }
 #slider {
     float: left;
