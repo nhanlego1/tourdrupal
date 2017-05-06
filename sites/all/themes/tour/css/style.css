@@ -3697,3 +3697,83 @@ table.company td {
     top: 100px;
 }
 
+@media only screen and (max-width:1024px) and (min-width:768px)  {
+    .header_right {
+        float: right;
+        width: 90%;
+    }
+    .header {
+        position: relative;
+        height: 90px;
+    }
+    .container {
+        width: 100%;
+    }
+    .nivo-caption {
+        width: 47%;
+        top: 40%;
+    }
+    .theme-default .nivo-controlNav {
+        top: 90%;
+    }
+    .slider-wrapper {
+        height: 100%;
+    }
+    #home_slider {
+        height: 581px;
+    }
+    .col-sm-12 {
+        width: 50%;
+    }
+    .bg_red, .bg_red_tab {
+        height: 421px!important;
+    }
+    .col-sm-6 {
+        width: 25%;
+    }
+    .right-content {
+        width: 30%;
+        float: right;
+    }
+    .node-type-page .left-content,
+    .node-type-blog .left-content,
+    .node-type-events .left-content,
+    .node-type-news .left-content,
+    .node-type-community .left-content,
+    .page-hosts .left-content,
+    .node-type-host .left-content,
+    .node-type-tour .left-content,
+    .page-tours .left-content,
+    .page-blog .left-content,
+    .page-news .left-content,
+    .page-events .left-content{
+        width: 70%!important;
+    }
+    .right-content .right-content-child > p.title-head {
+        font-size: 16px!important;
+    }
+    .row.host .col-sm-6 {
+        width: 33%;
+    }
+    .host .host-salary {
+        font-size: 16px!important;
+    }
+    .right-tour .col-xs-4{
+        width: 50%;
+    }
+    .right-tour .col-xs-8{
+        width: 50%;
+    }
+    .node-type-host .col-sm-12,  .node-type-tour .col-sm-12{
+        width: 100%;
+    }
+    .page-tours #block-system-main .left-content,
+    .page-taxonomy-term .left-content,
+    .node-add .left-content{
+        width: 100%!important;
+    }
+    .node-form .form-type-checkbox label {
+        width: 100%;
+        display: inline-block;
+    }
+}
