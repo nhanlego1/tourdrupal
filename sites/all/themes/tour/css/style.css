@@ -3983,6 +3983,18 @@ table.company td {
     .header {
         position: fixed!important;
     }
+    .header1 h2 {
+        font-size: 22px!important;
+        color: #fff;
+        margin-bottom: 5px;
+        line-height: 40px;
+    }
+    #tour-purchase-form #edit-start-date .form-item input {
+        width: 157px;
+    }
+    #tour-purchase-form #edit-end-date .form-item input {
+        width: 157px;
+    }
 }
 #slider {
     float: left;
