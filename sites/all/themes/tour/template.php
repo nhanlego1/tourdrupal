@@ -13,7 +13,21 @@
 function tour_preprocess_page(&$vars) {
     global $language;
     //add js for site
+    drupal_add_js(drupal_get_path('theme', 'tour') . '/js/jquery.animate-enhanced.min.js');
+    drupal_add_js(drupal_get_path('theme', 'tour') . '/js/wow.min.js');
+    drupal_add_js(drupal_get_path('theme', 'tour') . '/js/jquery.tosrus.min.all.js');
+    drupal_add_js(drupal_get_path('theme', 'tour') . '/js/jquery.easing.1.3.js');
+    drupal_add_js(drupal_get_path('theme', 'tour') . '/js/custom.js');
+    drupal_add_js(drupal_get_path('theme', 'tour') . '/js/slick.min.js');
+    drupal_add_js(drupal_get_path('theme', 'tour') . '/js/jquery.superslides.min.js');
     drupal_add_js(drupal_get_path('theme', 'tour') . '/js/default.js');
+    //add css
+     drupal_add_css(drupal_get_path('theme', 'tour') . '/css/superslides.css');
+     drupal_add_css(drupal_get_path('theme', 'tour') . '/css/slick.css');
+     drupal_add_css(drupal_get_path('theme', 'tour') . '/css/jquery.tosrus.all.css');
+     drupal_add_css(drupal_get_path('theme', 'tour') . '/css/hareruyared-theme.css');
+     drupal_add_css(drupal_get_path('theme', 'tour') . '/css/animate.css');
+   // drupal_add_js(drupal_get_path('theme', 'tour') . '/js/queryloader2.min.js');
     if ($_GET['q'] == 'node/add/tour') {
         if ($language->language == 'ja') {
             drupal_set_title(t('ツアーエントリーフォーム'));

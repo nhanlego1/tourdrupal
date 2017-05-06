@@ -6,27 +6,38 @@
  * Time: 9:45 PM
  */
 ?>
+
 <?php if ($nodes): ?>
-    <div class="slider-wrapper theme-default">
-        <div id="slider" class="nivoSlider">
-            <?php foreach ($nodes as $node): ?>
-                <?php print theme('image_style', array('path' => $node->field_image[LANGUAGE_NONE][0]['uri'], 'style_name' => 'slider', 'attributes' => array('title' => '#slidecaption' . $node->nid))); ?>
-            <?php endforeach; ?>
-        </div>
-        <?php foreach ($nodes as $node): ?>
-            <div id="slidecaption<?php echo $node->nid; ?>" class="nivo-html-caption">
-                <div class="slide_info">
-                    <h1><?php echo $node->title; ?></h1>
-                    <?php if (isset($node->field_description[LANGUAGE_NONE])): ?>
-                        <p><?php echo $node->field_description[LANGUAGE_NONE][0]['value']; ?></p>
-                    <?php endif; ?>
-                </div>
-                <?php if (isset($node->field_link[LANGUAGE_NONE])) : ?>
-                    <div class="slide_more">
-                        <a href="<?php echo $node->field_link[LANGUAGE_NONE][0]['value']; ?>"><?php print t('View more'); ?></a>
+        <section id="slider">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="slider_area">
+                        <!-- Start super slider -->
+                        <div id="slides">
+                                <ul class="slides-container">
+                                    <?php foreach ($nodes as $node): ?>
+                                        <!-- Start single slider-->
+                                        <li>
+                                            <?php print theme('image_style', array('path' => $node->field_image[LANGUAGE_NONE][0]['uri'], 'style_name' => 'slider')); ?>
+                                            <div class="slider_caption">
+                                                <h2><?php echo $node->title; ?></h2>
+                                                <?php if (isset($node->field_description[LANGUAGE_NONE])): ?>
+                                                    <p><?php echo $node->field_description[LANGUAGE_NONE][0]['value']; ?></p>
+                                                <?php endif; ?>
+                                                <?php if (isset($node->field_link[LANGUAGE_NONE])) : ?>
+                                                    <a class="slider_btn" href="<?php echo $node->field_link[LANGUAGE_NONE][0]['value']; ?>"><?php print t('View more'); ?></a>
+                                                <?php endif; ?>
+
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                    
+                            <nav class="slides-navigation"></nav>
+                           
+                        </div>
                     </div>
-                <?php endif; ?>
+                </div>
             </div>
-        <?php endforeach; ?>
-    </div>
+        </section>
 <?php endif; ?>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a single Drupal page.
@@ -86,6 +85,11 @@
                     <?php endif; ?>
                     <h3 class="tagline"></h3>
                 </div>
+                <button type="button" class="navbar-toggle navbar-mobile collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <div class="header_right">
                     <?php print render($page['header']); ?>
                 </div>
@@ -113,7 +117,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 tab_left">
                                 <div class="aboutus_area wow fadeInLeft animated"
                                      style="visibility: visible; animation-name: fadeInLeft;">
-                                    <?php print render($page['page_top_left']) ?>
+                                         <?php print render($page['page_top_left']) ?>
                                 </div>
                             </div>
                         <?php endif; ?>
@@ -121,7 +125,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 tab_right">
                                 <div class="newsfeed_area wow fadeInRight animated"
                                      style="visibility: visible; animation-name: fadeInRight;">
-                                    <?php print render($page['page_top_right']) ?>
+                                         <?php print render($page['page_top_right']) ?>
                                 </div>
                             </div>
                         <?php endif; ?>

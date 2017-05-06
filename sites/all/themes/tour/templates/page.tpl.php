@@ -86,6 +86,11 @@
                     <?php endif; ?>
                     <h3 class="tagline"></h3>
                 </div>
+                <button type="button" class="navbar-toggle navbar-mobile collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <div class="header_right">
                     <?php print render($page['header']); ?>
                 </div>

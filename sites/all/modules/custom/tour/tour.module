@@ -595,7 +595,6 @@ function tour_get_host_home(){
     $query->condition('status',NODE_PUBLISHED);
     $query->condition('language',$language->language);
     $query->orderBy('created','DESC');
-    $query->range(0,4);
     $result = $query->execute()->fetchAll();
     $nodes = array();
     if($result){
@@ -664,7 +663,6 @@ function tour_get_tour_home(){
     $query->condition('status',NODE_PUBLISHED);
     $query->condition('language',$language->language);
     $query->orderBy('created','DESC');
-    $query->range(0,3);
     $result = $query->execute()->fetchAll();
     $nodes = array();
     if($result){
