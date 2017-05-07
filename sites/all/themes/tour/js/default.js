@@ -104,9 +104,16 @@
                 animation_easing: 'linear',
                 pagination: 'true'
             });
-            
-            $("button.navbar-toggle").click(function(){
-               $("ul.menu.nav").slideToggle(); 
+
+            $("button.navbar-toggle").click(function () {
+                $("ul.menu.nav").slideToggle();
+                ("ul.menu.nav").show();
+                return false;
+//                if ($('ul.menu.nav:visible').length){
+//                    $('ul.menu.nav').hide("slide", {direction: "right"}, 1000);
+//                }else{
+//                    $('ul.menu.nav').show("slide", {direction: "right"}, 1000);
+//                }
             });
         }
     };
