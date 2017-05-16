@@ -428,7 +428,7 @@ p.progress-name{
     font-size: 24px;
     color:#fff;
     text-align: center;
-    margin-top: 0px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -437,7 +437,7 @@ p.progress-name{
     background-image: url(../images/bg-container.jpg);
     height: auto;
     margin-top: -15px;
-    padding-top: 40px;
+    padding-top: 0px;
     position: relative;
 }
 .host .list-host{
