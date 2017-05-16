@@ -223,6 +223,11 @@ function tour_theme()
         'path' => drupal_get_path('module', 'tour') . '/themes',
         'template' => 'tour-host-form',
     );
+       $items['tour_contact_form'] = array(
+        'render element' => 'element',
+        'path' => drupal_get_path('module', 'tour') . '/themes',
+        'template' => 'tour-contact-form',
+    );
         $items['tour_tour_form'] = array(
         'render element' => 'element',
         'path' => drupal_get_path('module', 'tour') . '/themes',
@@ -590,6 +595,9 @@ function tour_form_alter(&$form, &$form_state, $form_id){
     }
     if($form_id=='comment_node_host_form' || $form_id=='comment_node_tour_form'){
       $form['comment_body'][LANGUAGE_NONE][0]['#title'] = t('Review');
+    }
+    if($form_id=='tour_question_form'){
+      $form['#theme'] = array('tour_contact_form');
     }
 }
 
