@@ -581,8 +581,8 @@ function tour_form_alter(&$form, &$form_state, $form_id){
        $form['field_guidable_area'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
        $form['field_prefectures'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
     }
-    if($form_id=='comment_node_host_form'){
-      var_dump($form);
+    if($form_id=='comment_node_host_form' || $form_id=='comment_node_tour_form'){
+      $form['comment_body'][LANGUAGE_NONE][0]['#title'] = t('Review');
     }
 }
 
