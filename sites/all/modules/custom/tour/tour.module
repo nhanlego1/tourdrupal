@@ -581,6 +581,9 @@ function tour_form_alter(&$form, &$form_state, $form_id){
        $form['field_guidable_area'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
        $form['field_prefectures'][LANGUAGE_NONE]['#options'] = _outergroup_select('region');
     }
+    if($form_id=='comment_node_host_form'){
+      dsm($form);
+    }
 }
 
 /**
