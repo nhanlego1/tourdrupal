@@ -843,6 +843,7 @@ function tour_question_form_submit($form, &$form_state){
     }
     $body = str_replace('[name]', $name, $body);
     $body = str_replace('[email]', $email, $body);
+    $body = str_replace('[emailTo]', $email_to, $body);
     $body = str_replace('[message]', $message, $body);
     $body = str_replace('[subject]', $subject, $body);
     $body = str_replace('[item]', $item->title, $body);
