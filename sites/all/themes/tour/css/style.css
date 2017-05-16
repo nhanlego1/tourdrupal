@@ -2936,6 +2936,7 @@ input[type="email"], input[type="tel"] {
 }
 .header1{
   height: 300px; background: url(../images/bg-2.jpg) 0% 0% / cover; margin-top: 0px;
+  background-size:  cover;
 }
 #block-locale-language{
   width: 140px;
