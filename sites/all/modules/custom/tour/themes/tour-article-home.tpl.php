@@ -29,8 +29,7 @@
                                 <div class="media-body">
                                     <a tabindex="0"
                                        href="<?php print url('node/' . $blog->nid) ?>"><b><?php print $blog->title ?></b></a>
-                                    <p class="food_des"></p>
-                                    <p><?php print $blog->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
+                                    <p class="food_des"><?php print $blog->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
                                 </div>
                             </div>
                         </li>
@@ -56,8 +55,7 @@
                                 <div class="media-body">
                                     <a tabindex="0"
                                        href="<?php print url('node/' . $news->nid) ?>"><b><?php print $news->title ?></b></a>
-                                    <p class="food_des"></p>
-                                    <p><?php print $news->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
+                                    <p class="food_des"><?php print $news->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
                                 </div>
                             </div>
                         </li>
@@ -83,8 +81,7 @@
                                 <div class="media-body">
                                     <a tabindex="0"
                                        href="<?php print url('node/' . $events->nid) ?>"><b><?php print $events->title ?></b></a>
-                                    <p class="food_des"></p>
-                                    <p><?php print $events->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
+                                    <p class="food_des"><?php print $events->field_short_desc[LANGUAGE_NONE][0]['value'] ?>...</p>
                                 </div>
                             </div>
                         </li>
