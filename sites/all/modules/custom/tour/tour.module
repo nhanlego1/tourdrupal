@@ -32,7 +32,7 @@ function tour_menu()
 {
     $items = array();
     
-    $items['contact-us'] = array(
+    $items['contact'] = array(
         'title'=> t('Contact'),
         'access arguments' => array('access content'),
         'page callback' => 'tour_question_answer',

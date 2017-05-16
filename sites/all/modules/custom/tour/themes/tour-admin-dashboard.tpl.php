@@ -71,19 +71,20 @@
 </div>
 <div id="admin-panel">
 
-    <h2>Settings and Reports </h2>
+    <h2><?php print t('Settings and Reports')?> </h2>
     <ul>
-        <li class="user-logout"><a href="/admin/config/services/paypal_adaptive_accounts_api?destination=admin/dashboard">Manage settings Paypal Adaptive</a></li>
-        <li class="user-logout"><a href="/admin/config/system/smtp?destination=admin/dashboard">Manage SMTP server</a></li>
-        <li class="user-logout"><a href="/admin/config/people/ip-blocking?destination=admin/dashboard">Block IP address</a></li>
-        <li class="user-logout"><a href="/admin/config/search/metatags?destination=admin/dashboard">Manage Metatags (SEO)</a></li>
-        <li class="user-logout"><a href="/admin/config/regional/language?destination=admin/dashboard">Manage language</a></li>
-        <li class="user-logout"><a href="/admin/config/regional/translate/translate?destination=admin/dashboard">Translate Text and Title tool</a></li>
-        <li class="user-logout"><a href="/admin/config/system/googleanalytics?destination=admin/dashboard">Google Analystics</a></li>
-        <li class="user-logout"><a href="/admin/config/system/site-information?destination=admin/dashboard">Manage Website Information</a></li>
-        <li class="user-logout"><a href="/admin/config/development/performance?destination=admin/dashboard">Clear cache</a></li>
-        <li class="user-logout"><a href="/admin/content/webform?destination=admin/dashboard">Manage Contact Form</a></li>
-        <li class="user-logout"><a href="/user/logout">Logout</a></li>
+        <li class="user-logout"><a href="/admin/config/services/paypal_adaptive_accounts_api?destination=admin/dashboard"><?php print t('Manage settings Paypal Adaptive')?></a></li>
+        <li class="user-logout"><a href="/admin/config/system/smtp?destination=admin/dashboard"><?php print t('Manage SMTP server')?></a></li>
+        <li class="user-logout"><a href="/admin/config/people/ip-blocking?destination=admin/dashboard"><?php print t('Block IP address')?></a></li>
+        <li class="user-logout"><a href="/admin/config/search/metatags?destination=admin/dashboard"><?php print t('Manage Metatags (SEO)')?></a></li>
+        <li class="user-logout"><a href="/admin/config/regional/language?destination=admin/dashboard"><?php print t('Manage language')?></a></li>
+        <li class="user-logout"><a href="/admin/config/regional/translate/translate?destination=admin/dashboard"><?php print t('Translate Text and Title tool')?></a></li>
+        <li class="user-logout"><a href="/admin/config/system/googleanalytics?destination=admin/dashboard"><?php print t('Google Analystics')?></a></li>
+        <li class="user-logout"><a href="/admin/config/system/site-information?destination=admin/dashboard"><?php print t('Manage Website Information')?></a></li>
+        <li class="user-logout"><a href="/admin/config/development/performance?destination=admin/dashboard"><?php print t('Clear cache')?></a></li>
+        <li class="user-logout"><a href="/admin/content/webform?destination=admin/dashboard"><?php print t('Manage Contact Form')?></a></li>
+        <li class="user-logout"><a href="/admin/config/content/tour?destination=admin/dashboard"><?php print t('Email Template setting')?></a></li>
+        <li class="user-logout"><a href="/user/logout"><?php print t('Logout')?></a></li>
     </ul>
 </div>
 
