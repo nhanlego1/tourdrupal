@@ -819,7 +819,7 @@ function tour_question_form_submit($form, &$form_state){
     $email = $form_state['values']['email'];
     $subject = $form_state['values']['subject'];
     $message = $form_state['values']['message'];
-    $item = node_load($form_state['values']['item'];);
+    $item = node_load($form_state['values']['item']);
     $node = new stdClass();
     $node->type = 'contact';
     $node->status = 1;
