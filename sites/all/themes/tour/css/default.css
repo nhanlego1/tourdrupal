@@ -295,6 +295,7 @@ body{
     border-radius: 10px;
     color: #fff;
     height: 378px;
+    position: relative;
 }
 .nav-tabs>li>a {
     line-height: 1.42857143;
@@ -357,14 +358,14 @@ body{
     list-style: none;
 }
 .media{
-    margin-bottom: 19px;
+    margin-bottom: 10px;
 }
 .media-body a{
     color: #fff;
 }
 .food_des{
     font-size: 14px;
-    margin-top: 11px;
+    margin-top: 5px;
 }
 .events_tab .media-body{
     padding-top: 15px;
@@ -383,6 +384,9 @@ body{
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
+    position: absolute;
+    right: 29px;
+    bottom: 12px;
 }
 a:focus, a:hover {
 
