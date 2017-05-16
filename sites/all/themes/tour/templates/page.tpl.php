@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a single Drupal page.
@@ -74,102 +73,105 @@
 ?>
 
 <div id="page-wrapper">
-    <div id="page">
+  <div id="page">
 
-        <header class="header fixed_header">
-            <div class="container">
-                <div id="logo">
-                    <?php if ($logo): ?>
-                        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-                            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
-                        </a>
-                    <?php endif; ?>
-                    <h3 class="tagline"></h3>
-                </div>
-                <button type="button" class="navbar-toggle navbar-mobile collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="header_right">
-                    <?php print render($page['header']); ?>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </header>
-        <!--header banner and title-->
-        <div class="header1" <?php if(_get_template_bg_header()): ?> style="background: url(<?php print _get_template_bg_header() ?>) 0% 0% / cover" <?php endif; ?>>
-            <?php if ($title): ?>
-                <div class="title-top">
-                    <h2><?php print $title; ?></h2>
-                </div>
-            <?php endif; ?>
+    <header class="header fixed_header">
+      <div class="container">
+        <div id="logo">
+          <?php if ($logo): ?>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+            </a>
+          <?php endif; ?>
+          <h3 class="tagline"></h3>
         </div>
-        
-        <?php if($page['step']): ?>
-        <div class="col-md-12 col-xs-12 " id="step">
-            <?php print render($page['step']) ?>
+        <button type="button" class="navbar-toggle navbar-mobile collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="header_right">
+          <?php print render($page['header']); ?>
         </div>
+        <div class="clear"></div>
+      </div>
+    </header>
+    <!--header banner and title-->
+    <div class="features-header-second header1">
+      <?php if (_get_template_bg_header()): ?>
+        <?php print _get_template_bg_header() ?>
+      <?php endif; ?>
+      <div class="title-top">
+        <?php if ($title): ?>
+          <h2><?php print $title; ?></h2>
         <?php endif; ?>
-
-
-        <!-- Section slider-->
-        <?php if ($page['featured']): ?>
-            <section id="home_slider" style="margin-top: 0px;">
-                <?php print render($page['featured']) ?>
-                <div class="clear"></div>
-            </section>
-        <?php endif; ?>
-
-        <?php print $messages; ?>
-
-        <!-- Content top-->
-        <?php if ($page['page_top_left']): ?>
-            <section id="aboutUs">
-                <div class="container">
-                    <div class="row">
-                        <?php print render($page['page_top_left']) ?>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </section>
-        <?php endif; ?>
-        <div class="container-fluid">
-            <div id="main-wrapper" class="container">
-                <div id="main" class="row">
-
-                    <div id="content" class="column <?php if($page['sidebar_right']): ?>col-md-8 <?php else: ?>col-md-12  <?php endif; ?> col-xs-12 left-content">
-                        <div class="section">
-
-                            <a id="main-content"></a>
-                            <?php if ($tabs): ?>
-                                <div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
-                            <?php print render($page['help']); ?>
-                            <?php if ($action_links): ?>
-                                <ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-                            <?php print render($page['content']); ?>
-                            <?php print $feed_icons; ?>
-                        </div>
-                    </div> <!-- /.section, /#content -->
-
-
-                    <?php if ($page['sidebar_right']): ?>
-                        <div id="sidebar-second" class="column sidebar col-md-4 right-content">
-                            <div class="section">
-                                <?php print render($page['sidebar_right']); ?>
-                            </div>
-                        </div> <!-- /.section, /#sidebar-second -->
-                    <?php endif; ?>
-
-                </div>
-            </div>
-        </div>
-        <!-- /#main, /#main-wrapper -->
-
-        <div id="footer">
-            <div class="section">
-                <?php print render($page['footer']); ?>
-            </div>
-        </div> <!-- /.section, /#footer -->
+      </div>
     </div>
+
+    <?php if ($page['step']): ?>
+      <div class="col-md-12 col-xs-12 " id="step">
+        <?php print render($page['step']) ?>
+      </div>
+    <?php endif; ?>
+
+
+    <!-- Section slider-->
+    <?php if ($page['featured']): ?>
+      <section id="home_slider" style="margin-top: 0px;">
+        <?php print render($page['featured']) ?>
+        <div class="clear"></div>
+      </section>
+    <?php endif; ?>
+
+    <?php print $messages; ?>
+
+    <!-- Content top-->
+    <?php if ($page['page_top_left']): ?>
+      <section id="aboutUs">
+        <div class="container">
+          <div class="row">
+            <?php print render($page['page_top_left']) ?>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </section>
+    <?php endif; ?>
+    <div class="container-fluid">
+      <div id="main-wrapper" class="container">
+        <div id="main" class="row">
+
+          <div id="content" class="column <?php if ($page['sidebar_right']): ?>col-md-8 <?php else: ?>col-md-12  <?php endif; ?> col-xs-12 left-content">
+            <div class="section">
+
+              <a id="main-content"></a>
+              <?php if ($tabs): ?>
+                <div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+              <?php print render($page['help']); ?>
+              <?php if ($action_links): ?>
+                <ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+              <?php print render($page['content']); ?>
+              <?php print $feed_icons; ?>
+            </div>
+          </div> <!-- /.section, /#content -->
+
+
+          <?php if ($page['sidebar_right']): ?>
+            <div id="sidebar-second" class="column sidebar col-md-4 right-content">
+              <div class="section">
+                <?php print render($page['sidebar_right']); ?>
+              </div>
+            </div> <!-- /.section, /#sidebar-second -->
+          <?php endif; ?>
+
+        </div>
+      </div>
+    </div>
+    <!-- /#main, /#main-wrapper -->
+
+    <div id="footer">
+      <div class="section">
+        <?php print render($page['footer']); ?>
+      </div>
+    </div> <!-- /.section, /#footer -->
+  </div>
 </div> <!-- /#page, /#page-wrapper -->

@@ -2935,8 +2935,11 @@ input[type="email"], input[type="tel"] {
   margin-right: 14px;
 }
 .header1{
-  height: 300px; background: url(../images/bg-2.jpg) 0% 0% / cover; margin-top: 0px;
-  background-size:  cover;
+  position: relative;
+}
+.header1 img.responsive-header{
+  height: auto;
+  width: 100%;
 }
 #block-locale-language{
   width: 140px;
@@ -3690,6 +3693,15 @@ table.company td {
   left: 38%;
   top: 100px;
 }
+.header1 .title-top {
+    position: absolute;
+    top: 31%;
+    left: 25%;
+    right: 25%;
+    bottom: 20%;
+    text-align: center;
+    z-index: 123;
+  }
 
 @media only screen and (max-width:1024px) and (min-width:768px)  {
   .header_right {
@@ -3818,6 +3830,7 @@ table.company td {
     right: 25%;
     bottom: 20%;
     text-align: center;
+    z-index: 123;
   }
   button.slick-prev {
     left: -19px!important;
