@@ -4179,9 +4179,9 @@ table.contact-guide label{
 .page-guide-contact .alert-danger.error{
   display: none;
 }
-.contact-content{
+.contact-content, .contact-content-footer{
   width: 100%;
   text-align: center;
-  margin: 10px 0px;
+  margin: 20px 0px;
 }
 
