@@ -4131,4 +4131,10 @@ button.slick-next{
 p.service{
   margin-top: -12px;
 }
+.newTour p.service{
+  margin-top: 12px;
+}
+.testimonial p.service{
+  margin-top: 12px;
+}
 
