@@ -4176,4 +4176,12 @@ table.contact-guide .form-item {
 table.contact-guide label{
   display: none;
 }
+.page-guide-contact .alert-danger.error{
+  display: none;
+}
+.contact-content{
+  width: 100%;
+  text-align: center;
+  margin: 10px 0px;
+}
 

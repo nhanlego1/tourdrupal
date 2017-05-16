@@ -6,8 +6,18 @@
  */
 
 $form = $element;
+global $language;
 ?>
-<h2><?php print t('Contact') ?></h2>
+<div class="contact-content">
+  <h2><?php print t('Contact') ?></h2>
+  <?php if($language->language=='js'): ?>
+   <?php print variable_get('contact_content_ja'); ?>
+  <?php else: ?>
+  <?php print variable_get('contact_content_en'); ?>
+  <?php endif; ?>
+</div>
+
+
 <table class="contact-guide">
     <tr>
         <th><?php print t('Your name'); ?> <em class="required">※</em></th>
