@@ -708,21 +708,23 @@ function tour_get_tour_home_more(){
  * Question answer
  */
 function tour_question_answer(){
-    global $language;
-    $query = db_select('node','n');
-    $query->fields('n');
-    $query->condition('type','question');
-    $query->condition('status',NODE_PUBLISHED);
-    $query->condition('language',$language->language);
-    $query->orderBy('created','DESC');
-    $result = $query->execute()->fetchAll();
-    $nodes = array();
-    if($result){
-        foreach($result as $r){
-            $nodes[] = node_load($r->nid);
-        }
-    }
-    return theme('tour_qa',array('nodes'=>$nodes));
+//    global $language;
+//    $query = db_select('node','n');
+//    $query->fields('n');
+//    $query->condition('type','question');
+//    $query->condition('status',NODE_PUBLISHED);
+//    $query->condition('language',$language->language);
+//    $query->orderBy('created','DESC');
+//    $result = $query->execute()->fetchAll();
+//    $nodes = array();
+//    if($result){
+//        foreach($result as $r){
+//            $nodes[] = node_load($r->nid);
+//        }
+//    }
+//    return theme('tour_qa',array('nodes'=>$nodes));
+  $form = drupal_get_form('tour_question_form');
+  return drupal_render($form);
 }
 
 /**
