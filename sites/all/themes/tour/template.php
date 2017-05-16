@@ -49,6 +49,15 @@ function tour_preprocess_page(&$vars) {
     if($node->type=='events'){
         drupal_set_title(t('Events'));
     }
+    if($node->type=='host'){
+        drupal_set_title(t('Host Details'));
+    }
+    if($node->type=='tour'){
+        drupal_set_title(t('Tour Details'));
+    }
+    if(arg(0)=='taxonomy' && arg(1)=='term' && is_numeric(arg(2)) && is_null(arg(3))){
+      drupal_set_title(t('Gallery'));
+    }
 }
 
 /**
