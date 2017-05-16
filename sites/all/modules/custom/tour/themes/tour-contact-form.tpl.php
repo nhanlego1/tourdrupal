@@ -30,4 +30,4 @@ $form = $element;
 </table>
 
 <?php print drupal_render_children($form) ?> 
-<p>&npsb;</p>
+<p></p>

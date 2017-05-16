@@ -4159,7 +4159,7 @@ table.contact-guide{
   background-color: #F2F2F2;
 }
 table.contact-guide th{
-    padding-left: 22%;
+    padding-left: 18%;
     width: 30%;
     border: 1px solid #D5D5D5;
     text-align: center;
@@ -4172,5 +4172,8 @@ table.contact-guide .form-item {
     float: left;
     padding: 5px 5px;
     margin: 2px 0;
+}
+table.contact-guide label{
+  display: none;
 }
 
