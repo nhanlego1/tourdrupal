@@ -8,7 +8,7 @@
 $form = $element;
 ?>
 <h2><?php print t('Contact') ?></h2>
-<table>
+<table class="contact-guide">
     <tr>
         <th><?php print t('Your name'); ?> <em class="required">※</em></th>
         <td><?php print render($form['name']) ?></td>
