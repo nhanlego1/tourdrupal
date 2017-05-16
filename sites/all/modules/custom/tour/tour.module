@@ -32,11 +32,18 @@ function tour_menu()
 {
     $items = array();
     
-    $items['questions-and-answers'] = array(
-        'title'=> t('Question and Answer'),
+    $items['contact-us'] = array(
+        'title'=> t('Contact'),
         'access arguments' => array('access content'),
         'page callback' => 'tour_question_answer',
         'type' => MENU_CALLBACK
+    );
+     $items['admin/config/content/tour'] = array(
+        'title' =>  t('Tour Settings'),
+        'description' => 'Control config for tour-guide.',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('tour_admin'),
+        'access arguments' => array('administer content')
     );
     
      $items['host/confirm'] = array(
@@ -748,17 +755,36 @@ function _get_answer_question($nid){
  * Question form
  */
 function tour_question_form($form, &$form_state){
-    $form['info'] = array(
-        '#markup'=>'<div class="question-info"><h3>'.t('Please make your question.').'</h3></div>'
+//    $form['info'] = array(
+//        '#markup'=>'<div class="question-info"><h3>'.t('Contact.').'</h3></div>'
+//    );
+    $form['item'] = array(
+        '#type'=>'hidden',
+        '#value'=>$_GET['item'],
     );
-    $form['question'] = array(
+    $form['name'] = array(
         '#type'=>'textfield',
-        '#title'=>t('Question'),
+        '#title'=>t('Your Name'),
+        '#require'=>true
+    );
+    $form['email'] = array(
+        '#type'=>'textfield',
+        '#title'=>t('Your E-mail'),
+        '#require'=>true
+    );
+    $form['subject'] = array(
+        '#type'=>'textfield',
+        '#title'=>t('Subject'),
+        '#require'=>true
+    );
+    $form['message'] = array(
+        '#type'=>'textarea',
+        '#title'=>t('Message'),
         '#require'=>true
     );
     $form['submit'] = array(
         '#type'=>'submit',
-        '#value'=>t('Post your question')
+        '#value'=>t('Submit')
     );
     return $form;
 }
@@ -767,8 +793,20 @@ function tour_question_form($form, &$form_state){
  * Question form
  */
 function tour_question_form_validate($form, &$form_state){
-    if(empty($form_state['values']['question'])){
-        form_set_error('question',t('Please add your question'));
+    if(empty($form_state['values']['name'])){
+        form_set_error('name',t('Please enter your name.'));
+    }
+    if(empty($form_state['values']['email'])){
+        form_set_error('email',t('Please enter your E-mail.'));
+    }
+    if(!empty($form_state['values']['email']) && !valid_email_address($form_state['values']['email'])){
+      form_set_error('email',t('Your email is not valid.'));
+    }
+    if(empty($form_state['values']['subject'])){
+        form_set_error('subject',t('Please enter subject.'));
+    }
+    if(empty($form_state['values']['message'])){
+        form_set_error('message',t('Please enter message.'));
     }
 }
 
@@ -777,16 +815,42 @@ function tour_question_form_validate($form, &$form_state){
  */
 function tour_question_form_submit($form, &$form_state){
     global $language;
-    $question = $form_state['values']['question'];
+    $name = $form_state['values']['name'];
+    $email = $form_state['values']['email'];
+    $subject = $form_state['values']['subject'];
+    $message = $form_state['values']['message'];
+    $item = node_load($form_state['values']['item'];);
     $node = new stdClass();
-    $node->type = 'question';
+    $node->type = 'contact';
     $node->status = 1;
     $node->language = $language->language;
-    $node->title = $question;
+    $node->title = $name.' contact to '.$item->title;
+    $node->field_contact_name[LANGUAGE_NONE][0]['value'] = $name;
+    $node->field_contact_email[LANGUAGE_NONE][0]['value'] = $email;
+    $node->field_contact_subject[LANGUAGE_NONE][0]['value'] = $subject;
+    $node->field_contact_message[LANGUAGE_NONE][0]['value'] = $message;
+    $node->field_contact_item[LANGUAGE_NONE][0]['target_id'] = $item->nid;
     $node->uid = 0;
     $node->created = REQUEST_TIME;
     node_save($node);
-    drupal_set_message('Make question success.');
+    // Add an associative array about this desired attachment.
+    $email_to = $item->field_email_address[LANGUAGE_NONE][0]['value'];
+    $params = array();
+   
+    $body = variable_get('contact_body_en');
+    if($language->language=='ja'){
+      $body = variable_get('contact_body_ja');
+    }
+    $body = str_replace('[name]', $name, $body);
+    $body = str_replace('[email]', $email, $body);
+    $body = str_replace('[message]', $message, $body);
+    $body = str_replace('[subject]', $subject, $body);
+    $body = str_replace('[item]', $item->title, $body);
+    $body = str_replace('[link]', url('node/'.$item->nid,array('absolute'=>true)), $body);
+    $params['body'] = $body;
+    $params['subject'] = $subject;
+    drupal_mail('tour', 'contact', $email_to, language_default(), $params, $email, TRUE);
+    drupal_set_message('Thank you for your submittion. We will reply to you soon.');
 }
 
 /**
@@ -1283,3 +1347,52 @@ function tour_ajax_update_city(){
      drupal_exit();
 }
 
+/**
+ * Implements hook_mail().
+ */
+/*
+ * 	drupal mail looks for a function that matches the first parameter _ mail to build the message
+ */
+function tour_mail($key, &$message, $params)
+{
+    switch ($key) {
+        case 'contact':
+            $headers = array(
+                'MIME-Version' => '1.0',
+                'Content-Type' => 'text/html; charset=UTF-8; format=flowed',
+                'Content-Transfer-Encoding' => '8Bit',
+                'X-Mailer' => 'Drupal'
+            );
+            foreach ($headers as $key => $value) {
+                $message['headers'][$key] = $value;
+            };
+            $message['subject'] = t($params['subject']);
+            $message['body'][] = $params['body'];
+            break;
+    }
+}
+
+function tour_admin($form, &$form_state){
+  $form['contact_body_en'] = array(
+        '#type'=>'text_format',
+        '#title'=>t('Email template Contact body English.'),
+        '#default_value'=> variable_get('contact_body_en')
+    );
+    $form['contact_body_ja'] = array(
+         '#type'=>'text_format',
+        '#title'=>t('Email template Contact body Japanese.'),
+        '#default_value'=> variable_get('contact_body_ja')
+    );
+    $form['submit'] = array(
+        '#type'=>'submit',
+        '#value'=>'Save'
+    );
+    return $form;
+}
+
+function tour_admin_submit($form, &$form_state){
+    $data = $form_state['values'];
+     variable_set('contact_body_en', $data['contact_body_en']['value']);
+     variable_set('contact_body_ja', $data['contact_body_ja']['value']);
+     drupal_set_message(t('Save setting success.'));
+}
