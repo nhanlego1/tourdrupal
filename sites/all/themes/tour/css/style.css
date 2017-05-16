@@ -3695,13 +3695,16 @@ table.company td {
 }
 .header1 .title-top {
     position: absolute;
-    top: 31%;
+    top: 50%;
     left: 25%;
     right: 25%;
     bottom: 20%;
     text-align: center;
     z-index: 123;
   }
+  .header1 img.adaptive-image {
+   width: 100%;
+}
 
 @media only screen and (max-width:1024px) and (min-width:768px)  {
   .header_right {
