@@ -4184,4 +4184,7 @@ table.contact-guide label{
   text-align: center;
   margin: 20px 0px;
 }
+.submitted a.permalink{
+  display:none;
+}
 

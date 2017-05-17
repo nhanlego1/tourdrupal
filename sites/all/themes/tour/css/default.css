@@ -626,7 +626,7 @@ ul {
 .left-content .odd-step span.step-number {
     color:#ff0000;
     font-family: Helvetica-neue-condensed-black;
-    font-size: 30px;
+    font-size: 40px;
 }
 .left-content .odd-step span.step-title-letter{
     font-family: HelveticaNeue-CondensedBold;
@@ -657,7 +657,7 @@ ul {
 .left-content .even-step .step-title span.step-number {
     color:#ff0000;
     font-family: Helvetica-neue-condensed-black;
-    font-size: 30px;
+    font-size: 40px;
 }
 .left-content .even-step .step-detail .step-detail-img{
     float: left;
