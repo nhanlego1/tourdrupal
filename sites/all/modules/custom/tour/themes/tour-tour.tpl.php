@@ -15,7 +15,7 @@
                 <ul class="tutors_nav">
                     <?php foreach ($nodes as $node1): ?>
                         <li>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="tour-front col-xs-12 col-sm-12 col-md-12">
                                 <div class="host-avatar">
                                     <a href="<?php print url('node/' . $node1->nid); ?>">
                                         <img class="host-img" src="<?php print image_style_url('tour_home', $node1->field_image_photo[LANGUAGE_NONE][0]['uri']) ?>">

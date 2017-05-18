@@ -24,40 +24,40 @@
 
             <div class="host-desc">
                 <p><?php print $node->field_profile_in_japanese[LANGUAGE_NONE][0]['value'] ?></p>
-                <table class="table table-striped course_table">
-                    <thead>
-                        <tr>
-                            <th style="border: 1px solid #d4d2d2; color: #333;" colspan="3">
-                    <h2><?php print t('Recommended gourmet that I will show! It is!') ?></h2>
+                <table style="margin-top: 40px" class="table table-striped course_table">
+                    <thead style="background-color: #ADB367">
+                        <tr style="background-color: #ADB367">
+                            <th style="border: 1px solid #d4d2d2; color: #ADB367;" colspan="3">
+                    <h2><span class="fa fa-quote-left"></span><?php print t('Recommended gourmet that I will show! It is!') ?></h2>
                     </th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td align="center"><?php print theme('image_style', array('path' => $node->field_gourmet_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
-                            <td align="center"><?php print theme('image_style', array('path' => $node->field_gourmet_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
-                            <td align="center"><?php print theme('image_style', array('path' => $node->field_gourmet_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
+                            <td class="cols-33" align="center"><?php print theme('image_style', array('path' => $node->field_gourmet_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
+                            <td class="cols-33" align="center"><?php print theme('image_style', array('path' => $node->field_gourmet_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
+                            <td class="cols-33" align="center"><?php print theme('image_style', array('path' => $node->field_gourmet_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
                         </tr>
                         <tr>
-                            <td align="center"><?php print $node->field_gourmet_name1[LANGUAGE_NONE][0]['value'] ?></td>
-                            <td align="center"><?php print $node->field_gourmet_name1[LANGUAGE_NONE][0]['value'] ?></td>
-                            <td align="center"><?php print $node->field_gourmet_name1[LANGUAGE_NONE][0]['value'] ?></td>
+                            <td class="cols-33" align="center"><?php print $node->field_gourmet_name1[LANGUAGE_NONE][0]['value'] ?></td>
+                            <td class="cols-33" align="center"><?php print $node->field_gourmet_name1[LANGUAGE_NONE][0]['value'] ?></td>
+                            <td class="cols-33" align="center"><?php print $node->field_gourmet_name1[LANGUAGE_NONE][0]['value'] ?></td>
                         </tr>
                         <tr>
-                            <td align="center">
+                            <td class="cols-33" align="center">
                                 <?php if (isset($node->field_gourmet_description1[LANGUAGE_NONE])): ?>
                                     <?php print $node->field_gourmet_description1[LANGUAGE_NONE][0]['value'] ?>
                                 <?php else: ?>
                                     -
                                 <?php endif; ?>
                             </td>
-                            <td align="center">
+                            <td class="cols-33" align="center">
                                 <?php if (isset($node->field_gourmet_description2[LANGUAGE_NONE])): ?>
                                     <?php print $node->field_gourmet_description2[LANGUAGE_NONE][0]['value'] ?>
                                 <?php else: ?>
                                     -
                                 <?php endif; ?></td>
-                            <td align="center">
+                            <td class="cols-33" align="center">
                                 <?php if (isset($node->field_gourmet_description3[LANGUAGE_NONE])): ?>
                                     <?php print $node->field_gourmet_description3[LANGUAGE_NONE][0]['value'] ?>
                                 <?php else: ?>
@@ -67,38 +67,38 @@
 
                     </tbody>
                 </table>
-                <table class="table table-striped course_table">
-                    <thead>
-                        <tr>
-                            <th style="border: 1px solid #d4d2d2; color: #333;" colspan="3">
-                    <h2><?php print t('The recommended spot I will guide! It is!') ?></h2>
+                <table style="margin-top: 40px" class="table table-striped course_table">
+                    <thead   style="background-color: #ADB367;">
+                        <tr style="background-color: #ADB367">
+                            <th style="border: 1px solid #d4d2d2; color: #ADB367;" colspan="3">
+                    <h2><span class="fa fa-quote-left"></span><?php print t('The recommended spot I will guide! It is!') ?></h2>
                     </th>
                     </tr>
                     </thead>
                     <tr>
-                        <td align="center"><?php print theme('image_style', array('path' => $node->field_spot_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
-                        <td align="center"><?php print theme('image_style', array('path' => $node->field_spot_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
-                        <td align="center"><?php print theme('image_style', array('path' => $node->field_spot_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
+                        <td class="cols-33" align="center"><?php print theme('image_style', array('path' => $node->field_spot_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
+                        <td class="cols-33" align="center"><?php print theme('image_style', array('path' => $node->field_spot_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
+                        <td class="cols-33" align="center"><?php print theme('image_style', array('path' => $node->field_spot_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => '150x150')) ?></td>
                     </tr>
                     <tr>
-                        <td align="center" width="230"><?php print $node->field_spot_name1[LANGUAGE_NONE][0]['value'] ?></td>
-                        <td align="center" width="230"><?php print $node->field_spot_name2[LANGUAGE_NONE][0]['value'] ?></td>
-                        <td align="center" width="230"><?php print $node->field_spot_name3[LANGUAGE_NONE][0]['value'] ?></td>
+                        <td class="cols-33" align="center" width="230"><?php print $node->field_spot_name1[LANGUAGE_NONE][0]['value'] ?></td>
+                        <td class="cols-33" align="center" width="230"><?php print $node->field_spot_name2[LANGUAGE_NONE][0]['value'] ?></td>
+                        <td class="cols-33" align="center" width="230"><?php print $node->field_spot_name3[LANGUAGE_NONE][0]['value'] ?></td>
                     </tr>
                     <tr>
-                        <td align="center">
+                        <td class="cols-33" align="center">
                             <?php if (isset($node->field_spot_description1[LANGUAGE_NONE])): ?>
                                 <?php print $node->field_spot_description1[LANGUAGE_NONE][0]['value'] ?>
                             <?php else: ?>
                                 -
                             <?php endif; ?></td>
-                        <td align="center">
+                        <td class="cols-33" align="center">
                             <?php if (isset($node->field_spot_description2[LANGUAGE_NONE])): ?>
                                 <?php print $node->field_spot_description2[LANGUAGE_NONE][0]['value'] ?>
                             <?php else: ?>
                                 -
                             <?php endif; ?></td>
-                        <td align="center">
+                        <td class="cols-33" align="center">
                             <?php if (isset($node->field_spot_description3[LANGUAGE_NONE])): ?>
                                 <?php print $node->field_spot_description3[LANGUAGE_NONE][0]['value'] ?>
                             <?php else: ?>
@@ -107,37 +107,38 @@
                     </tr>
                     </tbody>
                 </table>
-                <table class="table table-striped course_table profile-info">
+                
+                <table style="margin-top: 40px" class="table table-striped course_table profile-info">
                     <tbody>
                         <tr>
-                            <td><?php print t('Guide area') ?></td>
-                            <td><?php print _get_term_name($node->field_guidable_area[LANGUAGE_NONE]) ?></td>
+                            <td class="cols-3"><?php print t('Guide area') ?></td>
+                            <td class="cols-7"><?php print _get_term_name($node->field_guidable_area[LANGUAGE_NONE]) ?></td>
                         </tr>
                         <tr>
-                            <td><?php print t('Supported language') ?></td>
-                            <td><?php print _get_term_name($node->field_supported_languages[LANGUAGE_NONE]) ?></td>
+                            <td class="cols-3"><?php print t('Supported language') ?></td>
+                            <td class="cols-7"><?php print _get_term_name($node->field_supported_languages[LANGUAGE_NONE]) ?></td>
                         </tr>
                         <tr>
-                            <td><?php print t('Minimum time') ?></td>
-                            <td><?php print $node->field_minimum_guide_time[LANGUAGE_NONE][0]['value'] ?></td>
+                            <td class="cols-3"><?php print t('Minimum time') ?></td>
+                            <td class="cols-7"><?php print $node->field_minimum_guide_time[LANGUAGE_NONE][0]['value'] ?></td>
                         </tr>
                         <tr>
-                            <td><?php print t('Transportation') ?></td>
-                            <td><?php print render($content['field_moving_means']);//_get_values_name($node->field_moving_means[LANGUAGE_NONE]); ?></td>
-                        </tr>
-
-                        <tr>
-                            <td><?php print t('Basic time') ?></td>
-                            <td><?php print $node->field_basic_guide_uptime[LANGUAGE_NONE][0]['value'] ?></td>
-                        </tr>
-                        <tr>
-                            <td><?php print t('Morning early / late at night') ?></td>
-                            <td><?php print render($content['field_hourly_early']) ?></td>
+                            <td class="cols-3"><?php print t('Transportation') ?></td>
+                            <td class="cols-7"><?php print render($content['field_moving_means']);//_get_values_name($node->field_moving_means[LANGUAGE_NONE]); ?></td>
                         </tr>
 
                         <tr>
-                            <td><?php print t('Current job') ?></td>
-                            <td>
+                            <td class="cols-3"><?php print t('Basic time') ?></td>
+                            <td class="cols-7"><?php print $node->field_basic_guide_uptime[LANGUAGE_NONE][0]['value'] ?></td>
+                        </tr>
+                        <tr>
+                            <td class="cols-3"><?php print t('Morning early / late at night') ?></td>
+                            <td class="cols-7"><?php print render($content['field_hourly_early']) ?></td>
+                        </tr>
+
+                        <tr>
+                            <td class="cols-3"><?php print t('Current job') ?></td>
+                            <td class="cols-7">
                                 <?php if (isset($node->field_current_occupation[LANGUAGE_NONE])): ?>
                                     <?php print $node->field_current_occupation[LANGUAGE_NONE][0]['value'] ?>
                                 <?php else: ?>

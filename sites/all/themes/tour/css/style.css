@@ -2789,6 +2789,7 @@ blockquote {
   color: #000 !important;
   font-size: 21px;
   text-align: center;
+  height: auto!important;
 }
 
 .footer_widget_nav li a:hover {
@@ -4187,4 +4188,45 @@ table.contact-guide label{
 .submitted a.permalink{
   display:none;
 }
+.page-node .field-name-field-image{
+  text-align: center;
+}
+.page-node .field-name-field-image img{
+  display: initial!important;
+}
+#block-system-main .views-exposed-widgets {
+    margin-bottom: 40px;
+}
+td.cols-33, .cols-33{
+  width: 33.33%;
+}
+.cols-5, td.cols-5{
+  width: 50%;
+}
+.cols-7, td.cols-7{
+  width: 70%;
+}
+td.cols-3, .cols-3{
+  width: 30%;
+}
+h2 .fa-quote-left:before {
+ color:#2f383d;
+}
+.host-front{
+  padding-left: 5px!important;
+  padding-right: 5px!important;
+}
+.slick-disabled{
+  display: none!important;
+}
+.host-front p {
+    line-height: 1.5;
+    margin: 5px 0 5px;
+}
 
+.tour-front .host .host-desc{
+  margin-top: 0px!important;
+}
+.tour-front p{
+  margin-bottom: 5px!important;
+}

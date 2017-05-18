@@ -245,11 +245,11 @@
  * @endcode
  */
 $databases = array (
-  'default' => 
+  'default' =>
   array (
-    'default' => 
+    'default' =>
     array (
-      'database' => 'tour',
+      'database' => 'tourdrupal',
       'username' => 'root',
       'password' => 'root',
       'host' => 'localhost',
