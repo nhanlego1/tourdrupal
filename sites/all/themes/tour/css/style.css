@@ -4249,3 +4249,7 @@ h2 .fa-quote-left:before {
   background: transparent!important;
 }
 
+.titile:after {
+    background-color: #F00000;
+}
+
