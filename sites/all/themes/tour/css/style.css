@@ -4234,3 +4234,7 @@ h2 .fa-quote-left:before {
 .tour-front p{
   margin-bottom: 5px!important;
 }
+
+.node-type-webform .container-fluid{
+  background: #f6f6f6;
+}
