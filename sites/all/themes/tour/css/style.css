@@ -4245,4 +4245,7 @@ h2 .fa-quote-left:before {
     width: 50px;
     background: none repeat scroll 0 0 #F00000;
 }
+.node-type-page tr{
+  background: transparent!important;
+}
 
