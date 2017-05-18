@@ -4238,3 +4238,11 @@ h2 .fa-quote-left:before {
 .node-type-webform .container-fluid{
   background: #f6f6f6;
 }
+.title_area span {
+    display: inline-block;
+    text-align: center;
+    height: 5px;
+    width: 50px;
+    background: none repeat scroll 0 0 #F00000;
+}
+
