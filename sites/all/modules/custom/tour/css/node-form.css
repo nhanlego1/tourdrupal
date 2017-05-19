@@ -39,3 +39,6 @@ and open the template in the editor.
 .field-type-taxonomy-term-reference select{
   width: 40%;
 }
+.vertical-tabs{
+  margin-top: 50px;
+}
