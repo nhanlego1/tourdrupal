@@ -18,11 +18,11 @@ and open the template in the editor.
   display: none;
 }
 #field-birthday-add-more-wrapper fieldset{
-      border: 0;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
 }
 #edit-field-supported-languages-und label{
   display: block;
@@ -30,7 +30,7 @@ and open the template in the editor.
 .form-type-checkbox input, .form-type-checkbox label{
   float: left;
   display: block!important;
-  
+
 }
 .form-type-checkbox{
   width: 30%;
@@ -40,5 +40,11 @@ and open the template in the editor.
   width: 40%;
 }
 .vertical-tabs{
-  margin-top: 50px!important;
+  margin-top: 26px!important;
+  float: left;
+  left: 0px;
+  width: 100%;
+}
+#edit-actions{
+  float: left;
 }
