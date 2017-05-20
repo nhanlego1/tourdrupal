@@ -77,10 +77,7 @@ $form = $element;
         <th><?php print t('Pick up or not'); ?> <em class="required">※</em></th>
         <td><?php print render($form['field_pick_up_not']) ?></td>
     </tr> 
-    <tr>
-        <th><?php print t('Holidays'); ?> <em class="required">※</em></th>
-        <td><?php print render($form['field_holidays']) ?></td>
-    </tr> 
+
     <tr>
         <th><?php print t('Minimum performers'); ?> <em class="required">※</em></th>
         <td><?php print render($form['field_minimum_performers']) ?></td>
