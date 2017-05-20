@@ -4292,6 +4292,12 @@ table.purchase td label {
 .prefecture.cols-6{
   width: 65%;
 }
+.prefecture.cols-6 span{
+  width: 45%;
+}
+.prefecture.cols-6 span font{
+  padding-right: 55px;
+}
 .prefecture.cols-4{
   width: 35%;
 }
