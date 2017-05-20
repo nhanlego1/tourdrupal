@@ -14,7 +14,11 @@
             <div class="singlecourse_bottom">
                 <h1><b><?php print $node->title ?></b></h1>
                 <span class="singlecourse_author">
-                    <?php print theme('image_style', array('path' => $node->field_avatar[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?><?php print _get_term_name($node->field_guidable_area[LANGUAGE_NONE]) ?><p><a href="<?php print url('guide/contact',array('query'=>array('token'=> base64_encode(time().'|'.$node->nid)))) ?>" class="question"><?php print t('Contact') ?></a></p></span>
+                    <?php print theme('image_style', array('path' => $node->field_avatar[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
+                      <?php print _get_term_name($node->field_guidable_area[LANGUAGE_NONE]) ?>
+<!--                  <p>
+                    <a href="<?php //print url('guide/contact',array('query'=>array('token'=> base64_encode(time().'|'.$node->nid)))) ?>" class="question"><?php //print t('Contact') ?></a></p>-->
+                </span>
                 <span class="singlecourse_price"><?php print t('$') ?> <?php print number_format($node->field_hour_rate[LANGUAGE_NONE][0]['value'], 0, '.', ',') ?> / <?php print t('hour') ?>
                 </span>
             </div>

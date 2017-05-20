@@ -16,8 +16,9 @@
                 <span class="singlecourse_author">
                     <?php print theme('image_style', array('path' => $node->field_image_photo[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
                        <?php print $node->field_time[LANGUAGE_NONE][0]['value'] ?> | <?php print _get_term_name($node->field_guidable_area[LANGUAGE_NONE]) ?>
-                    <p>
-                            <a href="<?php print url('guide/contact',array('query'=>array('token'=> base64_encode(time().'|'.$node->nid)))) ?>" class="question"><?php print t('Contact') ?></a></p></span>
+<!--                    <p>
+                            <a href="<?php print url('guide/contact',array('query'=>array('token'=> base64_encode(time().'|'.$node->nid)))) ?>" class="question"><?php print t('Contact') ?></a></p>-->
+</span>
                 <span class="singlecourse_price"><?php print t('$') ?> <?php print number_format($node->field_tour_fee[LANGUAGE_NONE][0]['value'], 0, '.', ',') ?>
                 </span>
             </div>
