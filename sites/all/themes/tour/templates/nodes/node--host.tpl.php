@@ -111,33 +111,33 @@
                 <table style="margin-top: 40px" class="table table-striped course_table profile-info">
                     <tbody>
                         <tr>
-                            <td class="cols-3"><?php print t('Guide area') ?></td>
+                            <td class="cols-33"><?php print t('Guide area') ?></td>
                             <td class="cols-7"><?php print _get_term_name($node->field_guidable_area[LANGUAGE_NONE]) ?></td>
                         </tr>
                         <tr>
-                            <td class="cols-3"><?php print t('Supported language') ?></td>
+                            <td class="cols-33"><?php print t('Supported language') ?></td>
                             <td class="cols-7"><?php print _get_term_name($node->field_supported_languages[LANGUAGE_NONE]) ?></td>
                         </tr>
                         <tr>
-                            <td class="cols-3"><?php print t('Minimum time') ?></td>
+                            <td class="cols-33"><?php print t('Minimum time') ?></td>
                             <td class="cols-7"><?php print $node->field_minimum_guide_time[LANGUAGE_NONE][0]['value'] ?></td>
                         </tr>
                         <tr>
-                            <td class="cols-3"><?php print t('Transportation') ?></td>
+                            <td class="cols-33"><?php print t('Transportation') ?></td>
                             <td class="cols-7"><?php print render($content['field_moving_means']);//_get_values_name($node->field_moving_means[LANGUAGE_NONE]); ?></td>
                         </tr>
 
                         <tr>
-                            <td class="cols-3"><?php print t('Basic time') ?></td>
+                            <td class="cols-33"><?php print t('Basic time') ?></td>
                             <td class="cols-7"><?php print $node->field_basic_guide_uptime[LANGUAGE_NONE][0]['value'] ?></td>
                         </tr>
                         <tr>
-                            <td class="cols-3"><?php print t('Morning early / late at night') ?></td>
+                            <td class="cols-33"><?php print t('Morning early / late at night') ?></td>
                             <td class="cols-7"><?php print render($content['field_hourly_early']) ?></td>
                         </tr>
 
                         <tr>
-                            <td class="cols-3"><?php print t('Current job') ?></td>
+                            <td class="cols-33"><?php print t('Current job') ?></td>
                             <td class="cols-7">
                                 <?php if (isset($node->field_current_occupation[LANGUAGE_NONE])): ?>
                                     <?php print $node->field_current_occupation[LANGUAGE_NONE][0]['value'] ?>
