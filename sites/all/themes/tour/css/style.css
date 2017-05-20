@@ -4252,4 +4252,7 @@ h2 .fa-quote-left:before {
 .node-type-page .titile:after {
     background-color: #F00000;
 }
+.messages.alert{
+  display: none!important;
+}
 
