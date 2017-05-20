@@ -4266,3 +4266,26 @@ h2 .fa-quote-left:before {
 .page-taxonomy .left-content{
   margin-bottom: 40px;
 }
+table.purchase{
+    width: 100%;
+    background-color: #F2F2F2;
+}
+table.purchase th {
+    padding-left: 22%;
+    width: 30%;
+    border: 1px solid #D5D5D5;
+    text-align: center;
+}
+table.purchase td {
+    border: 1px solid #D5D5D5;
+}
+table.purchase .form-item {
+    width: 100%;
+    float: left;
+    padding: 5px 5px;
+    margin: 2px 0;
+}
+
+table.purchase td label {
+    display: none;
+}
