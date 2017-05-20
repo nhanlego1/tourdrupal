@@ -33,13 +33,11 @@
     <?php print $title; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-  <?php if ($header): ?>
     <div class="view-header col-md-7 col-xs-12 left-content">
-        <p class="blue-1"><?php print $header; ?></p>
+        <p class="blue-1"><?php print t('"Let\'s look for tours / activities!"') ?></p>
         <div class="hr-green-1"></div>
         <p class="blue-1"><?php print t('Condition search is possible according to purpose.'); ?></p>
     </div>
-  <?php endif; ?>
     <div class="clearfix"></div>
 
   <?php if ($exposed): ?>

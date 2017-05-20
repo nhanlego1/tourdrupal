@@ -33,12 +33,10 @@
     <?php print $title; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
-  <?php if ($header): ?>
     <div class="view-header col-md-7 col-xs-12 left-content">
-        <p class="blue-1"><?php print $header; ?></p>
+        <p class="blue-1"><?php print t('"Let\'s look for your favorite host (interpreter guide)!"') ?></p>
         <div class="hr-green-1"></div>
     </div>
-  <?php endif; ?>
     <div class="clearfix"></div>
   <?php if ($exposed): ?>
     <div class="view-filters">
