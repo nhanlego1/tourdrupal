@@ -4147,7 +4147,7 @@ button.slick-next{
   text-shadow: 0 0 8px rgba(53,0,0,0.5);
 }
 .our-service{
-  margin-top: 22px;
+  margin-top: 60px;
 }
 .our-service.margin-top-25 {
   margin-top: 8px;
@@ -4159,7 +4159,7 @@ p.service{
   margin-top: 12px;
 }
 .testimonial p.service{
-  margin-top: 12px;
+  margin-top: 50px;
 }
 table.contact-guide{
   width: 100%;
@@ -4262,4 +4262,7 @@ h2 .fa-quote-left:before {
 }
 .view-content .page-header h1{
   display: none;
+}
+.page-taxonomy .left-content{
+  margin-bottom: 40px;
 }
