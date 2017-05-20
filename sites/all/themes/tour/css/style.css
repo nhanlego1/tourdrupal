@@ -833,6 +833,7 @@ div#container > div {
 
 .media-body a {
   color: #fff;
+  line-height: 20px;
 }
 
 .food_des {
