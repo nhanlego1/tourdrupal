@@ -4289,12 +4289,12 @@ table.purchase .form-item {
 table.purchase td label {
     display: none;
 }
-.cols-6{
-  width: 60%;
+.prefecture.cols-6{
+  width: 65%;
 }
-.cols-4{
-  width: 40%;
+.prefecture.cols-4{
+  width: 35%;
 }
-.cols-4 span{
+.prefecture.cols-4 span{
   width: 30%;
 }
