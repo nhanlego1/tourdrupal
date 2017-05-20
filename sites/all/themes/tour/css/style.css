@@ -4256,4 +4256,9 @@ h2 .fa-quote-left:before {
 .messages.alert{
   display: none!important;
 }
-
+.view-content .page-header{
+  margin-bottom: 5px;
+}
+.view-content .page-header h1{
+  display: none;
+}
