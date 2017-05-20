@@ -4289,3 +4289,12 @@ table.purchase .form-item {
 table.purchase td label {
     display: none;
 }
+.cols-6{
+  width: 60%;
+}
+.cols-4{
+  width: 40%;
+}
+.cols-4 span{
+  width: 30%;
+}
