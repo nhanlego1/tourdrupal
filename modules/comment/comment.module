@@ -279,7 +279,7 @@ function comment_menu() {
     'weight' => 2,
   );
   $items['comment/reply/%node'] = array(
-    'title' => 'Add new comment',
+    'title' => t('Add new review'),
     'page callback' => 'comment_reply',
     'page arguments' => array(2),
     'access callback' => 'node_access',
