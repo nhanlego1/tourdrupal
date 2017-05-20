@@ -31,7 +31,7 @@
                     <ul class="footer_widget_nav">
                         <li><a href="<?php print url('node/118') ?>"><?php print t('Company Profile');?></a>
                         </li>
-                        <li><a href="<?php print url('contact') ?>"><?php print t('Inquiries')?></a>
+                        <li><a href="<?php print url('contact') ?>"><?php print t('Contact')?></a>
                         </li>
                     </ul>
                 </div>

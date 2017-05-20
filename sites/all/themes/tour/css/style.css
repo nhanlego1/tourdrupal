@@ -859,6 +859,7 @@ div#container > div {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
+  color:#fff;
 }
 
 a:focus, a:hover {
