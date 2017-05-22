@@ -12,6 +12,9 @@
             $("li.dropdown").hover(function () {
                 $(this).addClass('open');
             });
+            $("li.dropdown").click(function () {
+                $(this).addClass('open');
+            });
             $("li.dropdown").mouseout(function () {
                 setTimeout(function () {
                     $(this).removeClass('open');
@@ -19,7 +22,6 @@
 
             });
             $(".form-item-field-guidearea1-und select").change(function () {
-                console.log('nhan');
                 var tid = $(this).val();
                 $.post('/ajax/update/child', {pre: tid})
                         .done(function (data) {
