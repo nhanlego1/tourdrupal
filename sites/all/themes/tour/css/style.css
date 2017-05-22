@@ -4021,6 +4021,73 @@ table.company td {
   #tour-purchase-form #edit-end-date .form-item input {
     width: 157px;
   }
+
+  .dropdown-menu {
+    position: relative!important;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: transparent!important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0!important;
+    border-radius: 0!important;
+    box-shadow: none!important;
+  }
+  .dropdown-menu li{
+    border-bottom: 0!important;
+  }
+  .dropdown-menu li a{
+    color:#F00000!important;
+  }
+  li.dropdown.open a, li.dropdown.open span.dropdown-toggle{
+    color:#F00000!important;
+  }
+  .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: transparent!important;
+    border-color: transparent!important;
+  }
+  .menu-block-1.menu-name-main-menu li.dropdown.open ul{
+    padding: 0px;
+  }
+  .menu-block-1.menu-name-main-menu li.dropdown.open a{
+    padding: 0 10px;
+  }
+  .menu-block-1.menu-name-main-menu li.dropdown.open span.caret{
+    display: inline-block!important;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    color:#F00000!important;
+    padding: 0;
+  }
+  .menu-block-1.menu-name-main-menu li.dropdown.open span.caret{
+    display: inline-block!important;
+  }
+  .menu-block-1.menu-name-main-menu li span.caret{
+    display: inline-block!important;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    color:#FFF!important;
+    padding: 0;
+  }
 }
 #slider {
   float: left;
@@ -4324,4 +4391,7 @@ table.purchase td label {
 }
 .address-form p{
   padding-left: 10px!important;
+}
+.caret{
+  display: none;
 }

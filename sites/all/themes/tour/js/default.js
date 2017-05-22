@@ -9,9 +9,9 @@
                     $('.answer-' + _nid).toggle();
                 });
             });
-            $("li.dropdown").hover(function () {
-                $(this).addClass('open');
-            });
+//            $("li.dropdown").hover(function () {
+//                $(this).addClass('open');
+//            });
             
             $("li.dropdown").mouseout(function () {
                 setTimeout(function () {
