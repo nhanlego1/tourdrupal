@@ -12,11 +12,6 @@
             $("li.dropdown").hover(function () {
                 $(this).addClass('open');
             });
-            if(!$("li.dropdown").hasClass('open')){
-              $("li.dropdown").click(function () {
-                $(this).addClass('open');
-            });
-            }
             
             $("li.dropdown").mouseout(function () {
                 setTimeout(function () {
