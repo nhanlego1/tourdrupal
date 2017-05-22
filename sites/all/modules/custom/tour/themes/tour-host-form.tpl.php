@@ -26,7 +26,7 @@ $form = $element;
     </tr>
     <tr>
         <th><?php print t('Stay Address'); ?></th>
-        <td class="group-fields">
+        <td class="group-fields address-form">
             <p><?php print t('Postal code'); ?>:</p> <?php print render($form['field_postal_code']) ?>
             <p><?php print t('Prefectures'); ?>:</p> <?php print render($form['field_prefectures']) ?>
             <p><?php print t('Municipality'); ?>:</p> <?php print render($form['field_municipality']) ?>
