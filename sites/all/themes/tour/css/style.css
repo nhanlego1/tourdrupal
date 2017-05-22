@@ -4309,5 +4309,6 @@ table.purchase td label {
   padding-left: 30%;
 }
 .group-fields.stay-address p{
-  width: 100%;
+  width: 100%!important;
+  text-align: left!important;
 }
