@@ -33,5 +33,5 @@
             <?php print $fields['title']->content ?>
         </strong>
     </p>
-    <p class="time"><em><?php print $fields['created']->content ?></em></p>
+    <p class="time"><em><?php print t('Post date'); ?> <?php print $fields['created']->content ?></em></p>
 </div>
