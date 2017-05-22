@@ -18,7 +18,7 @@
                             <div class="host-front col-xs-12 col-sm-12 col-md-12">
                                 <div class="host-avatar">
                                     <a href="<?php print url('node/' . $node->nid) ?>">
-                                        <img class="host-img" src="<?php print image_style_url('host_home', $node->field_avatar[LANGUAGE_NONE][0]['uri']) ?>">
+                                        <img class="host-img" src="<?php print image_style_url('original', $node->field_avatar[LANGUAGE_NONE][0]['uri']) ?>">
                                     </a>
                                     <span>
                                         <strong><?php print $node->title ?></strong>
