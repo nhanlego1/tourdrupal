@@ -1024,12 +1024,23 @@ function tour_purchase_form($form, &$form_state){
         '#require'=>true,
         '#default_value'=> date('h:i',time())
     );
-    $form['total_hours'] = array(
+    if($hour==1){
+       $form['total_hours'] = array(
         '#title'=>t('Total hours'),
         '#type'=>'textfield',
         '#require'=>true,
         '#default_value'=>$hour,
     );
+    }else{
+      $form['total_hours'] = array(
+        '#title'=>t('Total hours'),
+        '#type'=>'textfield',
+        '#require'=>true,
+        '#default_value'=>$hour,
+        '#disabled'=>true
+    );
+    }
+    
     $form['total_fee'] = array(
         '#title'=>t('Total fee'),
         '#type'=>'textfield',

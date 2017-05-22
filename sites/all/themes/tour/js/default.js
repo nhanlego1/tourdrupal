@@ -105,10 +105,12 @@
                 pagination: 'true'
             });
 
-            $("button.navbar-toggle").click(function () {
+            $("button.navbar-toggle").click(function (e) {
                 $("ul.menu.nav").slideToggle();
-                ("ul.menu.nav").show();
-                return false;
+                exit()
+                
+               // ("ul.menu.nav").show();
+              //  return false;
 //                if ($('ul.menu.nav:visible').length){
 //                    $('ul.menu.nav').hide("slide", {direction: "right"}, 1000);
 //                }else{

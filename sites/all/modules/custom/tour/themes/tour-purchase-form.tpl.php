@@ -43,7 +43,10 @@ $form = $element;
         <td><?php print render($form['end_time']) ?></td>
     </tr>
     <tr>
-        <th><?php print t('Total hours'); ?> <em class="required">※</em></th>
+        <th><?php print t('Total hours'); ?> 
+          <?php if(arg(1)=='host'): ?>
+          <em class="required">※</em></th>
+        <?php endif; ?>
         <td><?php print render($form['total_hours']) ?></td>
     </tr>
     <tr>

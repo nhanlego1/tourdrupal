@@ -4117,6 +4117,9 @@ table.company td {
     margin-left: 15px;
     margin-bottom: 20px;
   }
+  .menu-name-main-menu .menu.nav.open{
+    display: block!important;
+  }
 }
 #slider {
   float: left;
