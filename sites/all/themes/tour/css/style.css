@@ -1912,6 +1912,13 @@ blockquote {
   -o-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
 }
+table.company {
+    width: 100%!important;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+    font-size: 12px;
+}
 
 .course_table thead {
   color: #fff;
