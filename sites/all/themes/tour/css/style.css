@@ -3021,10 +3021,11 @@ span.fa{
   -webkit-overflow-scrolling: touch;
 }
 .node-form .form-type-checkbox {
-  width: 20%;
+  width: 15%;
   float: left;
   display: inline-block;
   margin-left: 10px;
+  text-align: center;
 }
 .node-form .form-type-checkbox label{
   width: 90%;
@@ -4242,18 +4243,18 @@ h2 .fa-quote-left:before {
   background: #f6f6f6;
 }
 .title_area span {
-    display: inline-block;
-    text-align: center;
-    height: 5px;
-    width: 50px;
-    background: none repeat scroll 0 0 #F00000;
+  display: inline-block;
+  text-align: center;
+  height: 5px;
+  width: 50px;
+  background: none repeat scroll 0 0 #F00000;
 }
 .node-type-page tr{
   background: transparent!important;
 }
 
 .node-type-page .titile:after {
-    background-color: #F00000;
+  background-color: #F00000;
 }
 .messages.alert{
   display: none!important;
@@ -4268,27 +4269,27 @@ h2 .fa-quote-left:before {
   margin-bottom: 40px;
 }
 table.purchase{
-    width: 100%;
-    background-color: #F2F2F2;
+  width: 100%;
+  background-color: #F2F2F2;
 }
 table.purchase th {
-    padding-left: 22%;
-    width: 35%;
-    border: 1px solid #D5D5D5;
-    text-align: center;
+  padding-left: 22%;
+  width: 35%;
+  border: 1px solid #D5D5D5;
+  text-align: center;
 }
 table.purchase td {
-    border: 1px solid #D5D5D5;
+  border: 1px solid #D5D5D5;
 }
 table.purchase .form-item {
-    width: 100%;
-    float: left;
-    padding: 5px 5px;
-    margin: 2px 0;
+  width: 100%;
+  float: left;
+  padding: 5px 5px;
+  margin: 2px 0;
 }
 
 table.purchase td label {
-    display: none;
+  display: none;
 }
 .prefecture.cols-6{
   width: 65%;
@@ -4311,4 +4312,10 @@ table.purchase td label {
 .group-fields.stay-address p{
   width: 100%!important;
   text-align: left!important;
+}
+.node-form .form-type-checkbox input{
+  margin: 0;
+  padding: 0;
+  top: -2px;
+  left: 41%;
 }
