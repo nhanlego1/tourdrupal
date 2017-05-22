@@ -72,7 +72,7 @@
     </tr>
     <tr>
         <th><?php print t('Permitted early / late night operation'); ?> </th>
-        <td><?php print $node->field_permitted_early[LANGUAGE_NONE][0]['value'] ?></td>
+        <td><?php print t($node->field_permitted_early[LANGUAGE_NONE][0]['value']) ?></td>
     </tr>
     <tr>
         <th><?php print t('Hourly early in the morning / late at night'); ?> </th>
