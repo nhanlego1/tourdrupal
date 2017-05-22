@@ -25,7 +25,7 @@
     </tr>
     <tr>
         <th><?php print t('Stay Address'); ?></th>
-        <td class="group-fields">
+        <td class="group-fields stay-address">
             <p><?php print t('Postal code'); ?>: <?php print $node->field_postal_code[LANGUAGE_NONE][0]['value'] ?></p>
             <p><?php print t('Prefectures'); ?>: <?php print _get_term_name($node->field_prefectures[LANGUAGE_NONE]) ?></p>
             <p><?php print t('Municipality'); ?>: <?php print $node->field_municipality[LANGUAGE_NONE][0]['value'] ?></p>

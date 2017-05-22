@@ -4308,3 +4308,6 @@ table.purchase td label {
 .page-host-confirm td.group-fields p img{
   padding-left: 30%;
 }
+.group-fields.stay-address p{
+  width: 100%;
+}
