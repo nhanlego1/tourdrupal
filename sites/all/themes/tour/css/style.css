@@ -4319,3 +4319,6 @@ table.purchase td label {
   top: -2px;
   left: 41%;
 }
+.node-form .form-checkboxes{
+  margin-top: 10px;
+}
