@@ -82,41 +82,41 @@
         <th><?php print t('Guidable area'); ?> </th>
         <td>
             <div class="form-child-city">
-                <div class="prefecture">
-                    <span><?php print t('Prefectures') ?>:</span>
+                <div class="prefecture cols-6">
+                    <span><font><?php print t('Area') ?> ① </font><?php print t('Prefectures') ?>:</span>
                     <span><?php print _get_term_name($node->field_guidearea1[LANGUAGE_NONE]);?></span>
                 </div>
-                <div class="prefecture">
+                <div class="prefecture cols-4">
                     <span><?php print t('City') ?>:</span>
                     <span><?php print _get_term_name($node->field_city1[LANGUAGE_NONE]) ?></span>
                 </div>
             </div>
             <div class="form-child-city">
-                <div class="prefecture">
-                    <span><?php print t('Prefectures') ?>:</span>
+                <div class="prefecture cols-6">
+                    <span><font><?php print t('Area') ?> ② </font><?php print t('Prefectures') ?>:</span>
                     <span><?php print _get_term_name($node->field_guidearea2[LANGUAGE_NONE]) ?></span>
                 </div>
-                <div class="prefecture">
+                <div class="prefecture cols-4">
                     <span><?php print t('City') ?>:</span>
                     <span><?php print _get_term_name($node->field_city2[LANGUAGE_NONE]) ?></span>
                 </div>
             </div>
             <div class="form-child-city">
-                <div class="prefecture">
-                    <span><?php print t('Prefectures') ?>:</span>
+                <div class="prefecture cols-6">
+                    <span><font><?php print t('Area') ?> ③ </font><?php print t('Prefectures') ?>:</span>
                     <span><?php print _get_term_name($node->field_guidearea3[LANGUAGE_NONE]) ?></span>
                 </div>
-                <div class="prefecture">
+                <div class="prefecture cols-4">
                     <span><?php print t('City') ?>:</span>
                     <span><?php print _get_term_name($node->field_city3[LANGUAGE_NONE]) ?></span>
                 </div>
             </div>
             <div class="form-child-city">
-                <div class="prefecture">
-                    <span><?php print t('Prefectures') ?>:</span>
+                <div class="prefecture cols-6">
+                    <span><font><?php print t('Area') ?> ④ </font><?php print t('Prefectures') ?>:</span>
                     <span><?php print _get_term_name($node->field_guidearea4[LANGUAGE_NONE]) ?></span>
                 </div>
-                <div class="prefecture">
+                <div class="prefecture cols-4">
                     <span><?php print t('City') ?>:</span>
                     <span><?php print _get_term_name($node->field_city4[LANGUAGE_NONE]) ?></span>
                 </div>
@@ -136,17 +136,17 @@
         <td class="group-fields">
             <p>
                 <?php print $node->field_spot_name1[LANGUAGE_NONE][0]['value'] ?>
-                <?php print theme('image_style', array('path' => $node->field_spot_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
+                <?php print theme('image_style', array('path' => $node->field_spot_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumb')) ?>
                 <?php print $node->field_spot_description1[LANGUAGE_NONE][0]['value'] ?>
             </p>
             <p>
                 <?php print $node->field_spot_name2[LANGUAGE_NONE][0]['value'] ?>
-                <?php print theme('image_style', array('path' => $node->field_spot_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
+                <?php print theme('image_style', array('path' => $node->field_spot_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumb')) ?>
                 <?php print $node->field_spot_description2[LANGUAGE_NONE][0]['value'] ?>
             </p>
             <p>
                 <?php print $node->field_spot_name3[LANGUAGE_NONE][0]['value'] ?>
-                <?php print theme('image_style', array('path' => $node->field_spot_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
+                <?php print theme('image_style', array('path' => $node->field_spot_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumb')) ?>
                 <?php print $node->field_spot_description3[LANGUAGE_NONE][0]['value'] ?>
             </p>
         </td>
@@ -156,17 +156,17 @@
         <td class="group-fields">
             <p>
                 <?php print $node->field_gourmet_name1[LANGUAGE_NONE][0]['value'] ?>
-                <?php print theme('image_style', array('path' => $node->field_gourmet_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
+                <?php print theme('image_style', array('path' => $node->field_gourmet_image1[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumb')) ?>
                 <?php print $node->field_gourmet_description1[LANGUAGE_NONE][0]['value'] ?>
             </p>
             <p>
                 <?php print $node->field_gourmet_name2[LANGUAGE_NONE][0]['value'] ?>
-                <?php print theme('image_style', array('path' => $node->field_gourmet_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
+                <?php print theme('image_style', array('path' => $node->field_gourmet_image2[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumb')) ?>
                 <?php print $node->field_gourmet_description2[LANGUAGE_NONE][0]['value'] ?>
             </p>
             <p>
                 <?php print $node->field_gourmet_name3[LANGUAGE_NONE][0]['value'] ?>
-                <?php print theme('image_style', array('path' => $node->field_gourmet_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumbnail')) ?>
+                <?php print theme('image_style', array('path' => $node->field_gourmet_image3[LANGUAGE_NONE][0]['uri'], 'style_name' => 'thumb')) ?>
                 <?php print $node->field_gourmet_description3[LANGUAGE_NONE][0]['value'] ?>
             </p>
 
