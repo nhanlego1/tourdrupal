@@ -4304,3 +4304,6 @@ table.purchase td label {
 .prefecture.cols-4 span{
   width: 30%;
 }
+.page-host-confirm td.group-fields p img{
+  padding-left: 30%;
+}
