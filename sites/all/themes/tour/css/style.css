@@ -3611,6 +3611,7 @@ td.group-fields p{
   float: left;
   width: 31%;
   padding-left: 0;
+  text-align: center;
 }
 
 .page-node-add-host .form-actions .btn-default,
