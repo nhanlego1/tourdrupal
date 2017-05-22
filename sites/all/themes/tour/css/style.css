@@ -4101,7 +4101,14 @@ table.company td {
   #tour-purchase-form .form-control {
     width: 100%!important;
     float: left;
-}
+  }
+  .views-field-field-gallery-images img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
 }
 #slider {
   float: left;
