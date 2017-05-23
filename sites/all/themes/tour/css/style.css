@@ -1913,11 +1913,11 @@ blockquote {
   transition: all 0.5s ease 0s;
 }
 table.company {
-    width: 100%!important;
-    margin: 0 auto;
-    border-collapse: separate;
-    border-spacing: 0px 15px;
-    font-size: 12px;
+  width: 100%!important;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0px 15px;
+  font-size: 12px;
 }
 
 .course_table thead {
@@ -2754,8 +2754,8 @@ table.company {
 
 .singlecourse_author img {
   float: left;
-      position: relative;
-    top: -10px;
+  position: relative;
+  top: -10px;
 }
 
 .singlecourse_author a {
@@ -4120,6 +4120,12 @@ table.company td {
   .menu-name-main-menu .menu.nav.open{
     display: block!important;
   }
+  .header1 img.adaptive-image{
+    display: block!important;
+  }
+  .header1 img.adaptive-image:first-child{
+    display: none!important;
+  }
 }
 #slider {
   float: left;
@@ -4426,4 +4432,10 @@ table.purchase td label {
 }
 .caret{
   display: none;
+}
+.header1 img.adaptive-image{
+  display: none;
+}
+.header1 img.adaptive-image:first-child{
+  display: block;
 }

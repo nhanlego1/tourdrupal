@@ -66,7 +66,9 @@ function tour_preprocess_page(&$vars) {
 function _get_template_bg_header() {
     $nodes = get_banner();
     $arg = arg();
-    $url = '<img class="responsive-header" src="'.base_path().path_to_theme('tour').'/images/bg-2.jpg"/>';
+    $image = '';
+    $url_desktop= '<img class="responsive-header image-desktop" src="'.base_path().path_to_theme('tour').'/images/bg-2.jpg"/>';
+    $url_mobile = '<img class="responsive-header image-mobile" src="'.base_path().path_to_theme('tour').'/images/bg-2.jpg"/>';
     $type = false;
     if ($arg[0] == 'node' && is_numeric($arg[1])) {
         $current = node_load($arg[1]);
@@ -77,7 +79,8 @@ function _get_template_bg_header() {
         if ($type) {
             foreach ($node->field_node_type[LANGUAGE_NONE] as $typenode) {
                 if ($type == $typenode['value']) {
-                    $url = theme('image_style',array('style_name'=>'original', 'path'=>$node->field_image[LANGUAGE_NONE][0]['uri'],'attributes'=>array('class'=>array('responsive-header')))); 
+                    $url_desktop = theme('image_style',array('style_name'=>'original', 'path'=>$node->field_image[LANGUAGE_NONE][0]['uri'],'attributes'=>array('class'=>array('image-desktop'))));
+                    $url_mobile = theme('image_style',array('style_name'=>'original', 'path'=>$node->field_image_mobile[LANGUAGE_NONE][0]['uri'],'attributes'=>array('class'=>array('image-mobile')))); 
                 }
             }
         }
@@ -85,11 +88,14 @@ function _get_template_bg_header() {
             $pages = drupal_strtolower($node->field_path[LANGUAGE_NONE][0]['value']);
             $page_match = drupal_match_path($path, $pages);
             if($page_match) {
-               $url = theme('image_style',array('style_name'=>'original', 'path'=>$node->field_image[LANGUAGE_NONE][0]['uri'],'attributes'=>array('class'=>array('responsive-header')))); 
+               $url_desktop = theme('image_style',array('style_name'=>'original', 'path'=>$node->field_image[LANGUAGE_NONE][0]['uri'],'attributes'=>array('class'=>array('image-desktop'))));
+               $url_mobile = theme('image_style',array('style_name'=>'original', 'path'=>$node->field_image_mobile[LANGUAGE_NONE][0]['uri'],'attributes'=>array('class'=>array('image-mobile')))); 
             }
         }
     }
-    return $url;
+    $image .=$url_desktop;
+    $image .=$url_mobile;
+    return $image;
 }
 
 /**
