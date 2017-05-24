@@ -3081,7 +3081,7 @@ span.fa{
   margin-left: 5px;
 }
 .image-widget-data .input-group{
-  width: 64%;
+  width: 67%;
 }
 .node-form .form-actions {
   width: 100%;
@@ -3123,7 +3123,7 @@ span.fa{
 .date-combo.panel .date-clear{
   position: relative;
   top:-27px;
-  left: -13px;
+  left: -15px;
 }
 fieldset.field-group-fieldset.panel{
   background: none;
@@ -4462,4 +4462,13 @@ table.purchase .form-item.form-item-start-date-date{
 }
 .node-form .field-type-image .form-item{
   padding: 0;
+}
+.node-host-form input[type="text"]{
+  width: 56%;
+}
+.node-host-form .address-form input[type="text"], .node-host-form .address-form select {
+    width: 49%;
+}
+.node-host-form .date-combo.panel input.date-clear {
+  width: 60%;
 }
