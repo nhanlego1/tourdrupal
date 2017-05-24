@@ -4451,3 +4451,6 @@ table.purchase td label {
     width: 20%;
     padding: 10px 0px 0 7px;
 }
+.node-form .field-name-field-image-photo .form-item {
+    padding: 5px 0px;
+}
