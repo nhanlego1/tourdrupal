@@ -3540,7 +3540,7 @@ em.required{
 }
 td.group-fields p{
   float: left;
-  width: 25%;
+  width: 22%;
   padding-left: 30px;
 
 }
@@ -4458,5 +4458,8 @@ table.purchase .form-item.form-item-end-date-date{
   padding: 0;
 }
 table.purchase .form-item.form-item-start-date-date{
+  padding: 0;
+}
+.node-form .field-type-image .form-item{
   padding: 0;
 }
