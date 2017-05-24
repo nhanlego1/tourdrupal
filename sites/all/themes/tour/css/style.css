@@ -4439,3 +4439,10 @@ table.purchase td label {
 .header1 img.adaptive-image:first-child{
   display: block;
 }
+.field-name-field-image-photo{
+  width:95%;
+}
+.field-name-field-image-photo .panel-body {
+    padding: 15px 5px;
+    margin: 0;
+}
