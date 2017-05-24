@@ -67,8 +67,8 @@ function _get_template_bg_header() {
     $nodes = get_banner();
     $arg = arg();
     $image = '';
-    $url_desktop= '<img class="responsive-header image-desktop" src="'.base_path().path_to_theme('tour').'/images/bg-2.jpg"/>';
-    $url_mobile = '<img class="responsive-header image-mobile" src="'.base_path().path_to_theme('tour').'/images/bg-2.jpg"/>';
+    $url_desktop= '<img class="responsive-header adaptive-image image-desktop" src="'.base_path().path_to_theme('tour').'/images/bg-2.jpg"/>';
+    $url_mobile = '<img class="responsive-header adaptive-image image-mobile" src="'.base_path().path_to_theme('tour').'/images/bg-2.jpg"/>';
     $type = false;
     if ($arg[0] == 'node' && is_numeric($arg[1])) {
         $current = node_load($arg[1]);
