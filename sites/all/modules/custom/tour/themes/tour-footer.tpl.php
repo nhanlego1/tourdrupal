@@ -1,3 +1,6 @@
+<?php 
+global $language;
+?>
 <div class="footer_top">
     <div class="container">
         <div class="row">
@@ -29,10 +32,20 @@
                 <div class="single_footer_widget">
                     <h3><?php print t('Others') ?></h3>
                     <ul class="footer_widget_nav">
+                      <?php if($language->language=='ja'): ?>
                         <li><a href="<?php print url('node/118') ?>"><?php print t('Company Profile');?></a>
                         </li>
+                        <?php else: ?>
+                        <li><a href="<?php print url('node/119') ?>"><?php print t('Company Profile');?></a>
+                        </li>
+                        <?php endif; ?>
+                        <?php if($language->language=='ja'): ?>
+                        <li><a href="<?php print url('node/20') ?>"><?php print t('Contact')?></a>
+                        </li>
+                        <?php else: ?>
                         <li><a href="<?php print url('contact') ?>"><?php print t('Contact')?></a>
                         </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
