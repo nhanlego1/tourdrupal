@@ -1113,7 +1113,7 @@ function tour_purchase_form_validate($form, &$form_state){
     }
         if(arg(1)=='host'){
            if(empty($form_state['values']['total_hours'])){
-            form_set_error('total_hours',t('Enter total hours'));
+            form_set_error('total_hours',t('Total hours cannot be empty'));
         } 
     }
     

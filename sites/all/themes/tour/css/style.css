@@ -4454,3 +4454,9 @@ table.purchase td label {
 .node-form .field-name-field-image-photo .form-item {
     padding: 5px 0px;
 }
+table.purchase .form-item.form-item-end-date-date{
+  padding: 0;
+}
+table.purchase .form-item.form-item-start-date-date{
+  padding: 0;
+}
