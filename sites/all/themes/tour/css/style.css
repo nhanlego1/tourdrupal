@@ -4446,3 +4446,8 @@ table.purchase td label {
     padding: 15px 5px;
     margin: 0;
 }
+.node-tour-form td.group-fields p {
+    float: left;
+    width: 20%;
+    padding: 10px 0px 0 7px;
+}
