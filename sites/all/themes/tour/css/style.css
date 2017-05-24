@@ -4443,7 +4443,7 @@ table.purchase td label {
   width:95%;
 }
 .field-name-field-image-photo .panel-body {
-    padding: 15px 5px;
+    padding: 15px 0px;
     margin: 0;
 }
 .node-tour-form td.group-fields p {
