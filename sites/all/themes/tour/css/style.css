@@ -4475,3 +4475,6 @@ table.purchase .form-item.form-item-start-date-date{
 .i18n-ja .image-widget-data .input-group {
     width: 69%;
 }
+.i18n-ja .node-host-form .image-widget-data .input-group {
+    width: 71%;
+}
