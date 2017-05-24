@@ -84,7 +84,7 @@ $form = $element;
         <td>
             <div class="form-child-city">
                 <div class="prefecture cols-6">
-                    <span><font><?php print t('Area') ?> ① </font><?php print t('Prefectures') ?></span>
+                    <span><font><?php print t('Area') ?> ①: </font><?php print t('Prefectures') ?></span>
                     <?php print render($form['field_guidearea1']) ?>
                 </div>
                 <div class="prefecture cols-4">
@@ -94,7 +94,7 @@ $form = $element;
             </div>
             <div class="form-child-city">
                 <div class="prefecture cols-6">
-                    <span><font><?php print t('Area') ?> ② </font><?php print t('Prefectures') ?></span>
+                    <span><font><?php print t('Area') ?> ②: </font><?php print t('Prefectures') ?></span>
                     <?php print render($form['field_guidearea2']) ?>
                 </div>
                 <div class="prefecture cols-4">
@@ -104,7 +104,7 @@ $form = $element;
             </div>
             <div class="form-child-city">
                 <div class="prefecture cols-6">
-                    <span><font><?php print t('Area') ?> ③ </font><?php print t('Prefectures') ?></span>
+                    <span><font><?php print t('Area') ?> ③: </font><?php print t('Prefectures') ?></span>
                     <?php print render($form['field_guidearea3']) ?>
                 </div>
                 <div class="prefecture cols-4">
@@ -114,7 +114,7 @@ $form = $element;
             </div>
             <div class="form-child-city">
                 <div class="prefecture cols-6">
-                    <span><font><?php print t('Area') ?> ④ </font><?php print t('Prefectures') ?></span>
+                    <span><font><?php print t('Area') ?> ④: </font><?php print t('Prefectures') ?></span>
                     <?php print render($form['field_guidearea4']) ?>
                 </div>
                 <div class="prefecture cols-4">
