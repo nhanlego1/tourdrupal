@@ -47,10 +47,12 @@
         <td width="30%"><?php print t('End time') ?></td>
         <td width="70%"><?php print $node->field_end_time[LANGUAGE_NONE][0]['value'] ?></td>
     </tr>
+    <?php if ($node->field_order_type[LANGUAGE_NONE][0]['value'] == 'host'): ?>
     <tr>
         <td width="30%"><?php print t('Total hours') ?></td>
         <td width="70%"><?php print $node->field_total_hours[LANGUAGE_NONE][0]['value'] ?></td>
     </tr>
+    <?php endif; ?>
     <tr>
         <td width="30%"><?php print t('Total fee') ?></td>
         <td width="70%"><?php print t('$') ?><?php print number_format($node->field_total_fee[LANGUAGE_NONE][0]['value'], 0, '.', ',') ?></td>

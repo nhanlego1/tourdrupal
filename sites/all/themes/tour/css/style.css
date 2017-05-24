@@ -4152,8 +4152,10 @@ table.company td {
     width: 100%;
     float: left;
   }
-  
-  
+
+  .node-host-form .date-combo.panel input.date-clear {
+    width: 75%!important;
+  }
 }
 #slider {
   float: left;

@@ -42,13 +42,13 @@ $form = $element;
         <th><?php print t('End time'); ?> <em class="required">※</em></th>
         <td><?php print render($form['end_time']) ?></td>
     </tr>
+     <?php if(arg(1)=='host'): ?>
     <tr>
-        <th><?php print t('Total hours'); ?> 
-          <?php if(arg(1)=='host'): ?>
+        <th><?php print t('Total hours'); ?>        
           <em class="required">※</em></th>
-        <?php endif; ?>
         <td><?php print render($form['total_hours']) ?></td>
     </tr>
+    <?php endif; ?>
     <tr>
         <th><?php print t('Total fee'); ?> <em class="required">※</em></th>
         <td><?php print render($form['total_fee']) ?></td>
