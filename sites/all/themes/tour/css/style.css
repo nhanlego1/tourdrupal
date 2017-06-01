@@ -4509,6 +4509,6 @@ table.purchase .form-item.form-item-start-date-date{
   width: 71%;
 }
 .page-node-53 td img{
-  max-width: auto!important;
+  max-width:none!important;
   width:auto;
 }
