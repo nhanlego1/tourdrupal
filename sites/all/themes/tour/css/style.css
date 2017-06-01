@@ -4508,3 +4508,6 @@ table.purchase .form-item.form-item-start-date-date{
 .i18n-ja .node-host-form .image-widget-data .input-group {
   width: 71%;
 }
+.page-node-53 td img{
+  width: 60px!important;
+}
